@@ -71,7 +71,7 @@ const categoryCounts = (() => {
 })();
 
 export function ShopBrowser() {
-  // /shop?brand=stiga&category=Bats deep-links arrive from sports and brand pages.
+  // /products?brand=stiga&category=Bats deep-links arrive from sports and brand pages.
   const searchParams = useSearchParams();
   const initialBrand = searchParams.get("brand");
   const initialCategory = searchParams.get("category");

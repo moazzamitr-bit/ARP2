@@ -137,9 +137,6 @@ export function Header() {
               </Link>
             ))}
           </nav>
-          <Link href="/shop" className="mobile-secondary-link" onClick={() => setOpen(false)}>
-            Shop
-          </Link>
           <Link href="/wholesale" className="mobile-partner" onClick={() => setOpen(false)}>
             Partner With Us
           </Link>

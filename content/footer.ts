@@ -52,7 +52,7 @@ export const footerColumns: FooterColumn[] = [
   {
     title: "Shop & Stores",
     links: [
-      { label: "Shop Online", href: "/shop" },
+      { label: "Products", href: "/products" },
       { label: "Sports Categories", href: "/sports" },
       { label: "Authorized Resellers", href: "/authorized-resellers" },
       { label: "Events & Clinics", href: "/news" },

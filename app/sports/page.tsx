@@ -82,8 +82,8 @@ export default function SportsPage() {
             const count = countProducts(category.shopCategories);
             const shopHref =
               category.shopCategories.length === 1
-                ? `/shop?category=${encodeURIComponent(category.shopCategories[0])}`
-                : "/shop";
+                ? `/products?category=${encodeURIComponent(category.shopCategories[0])}`
+                : "/products";
             return (
               <Panel key={category.slug} className="sports-card sports-card-modern">
                 <div className="sports-card-head">
