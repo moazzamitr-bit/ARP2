@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { BookOpen, Download, ShieldCheck } from "lucide-react";
 import { BrandProductBrowser } from "@/components/brands/BrandProductBrowser";
 import { BrandLogo } from "@/components/brands/BrandLogo";
@@ -22,10 +23,8 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
 
 export default function BrandDetailPage({
   params,
-  searchParams,
 }: {
   params: { slug: string };
-  searchParams?: { type?: string };
 }) {
   const brand = getBrand(params.slug);
   if (!brand) notFound();
@@ -102,7 +101,9 @@ export default function BrandDetailPage({
       </section>
 
       <Section className="brand-products-section">
-        <BrandProductBrowser brand={brand} products={products} initialCategory={searchParams?.type} />
+        <Suspense fallback={null}>
+          <BrandProductBrowser brand={brand} products={products} />
+        </Suspense>
       </Section>
 
       <Section className="surface-band brand-resources-section">

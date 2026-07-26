@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   ArrowRight,
   CircleDot,
@@ -23,14 +24,17 @@ const categoryIcons: Record<string, typeof Waypoints> = {
 type BrandProductBrowserProps = {
   brand: Brand;
   products: FeaturedProduct[];
-  initialCategory?: string;
 };
 
-export function BrandProductBrowser({ brand, products, initialCategory }: BrandProductBrowserProps) {
-  const categories = brand.categories.slice(0, 4);
-  const [activeCategory, setActiveCategory] = useState(
-    initialCategory && categories.includes(initialCategory) ? initialCategory : "",
-  );
+export function BrandProductBrowser({ brand, products }: BrandProductBrowserProps) {
+  const categories = useMemo(() => brand.categories.slice(0, 4), [brand.categories]);
+  const searchParams = useSearchParams();
+  const [activeCategory, setActiveCategory] = useState("");
+
+  useEffect(() => {
+    const requestedCategory = searchParams.get("type") ?? "";
+    setActiveCategory(categories.includes(requestedCategory) ? requestedCategory : "");
+  }, [categories, searchParams]);
 
   // Unfiltered, the row shows the three highlighted products from slide 15;
   // picking a category shortcut opens up everything in that category.
