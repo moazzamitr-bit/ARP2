@@ -6,6 +6,7 @@ const appOutput = join(root, ".next/server/app");
 const dist = join(root, "dist");
 const client = join(dist, "client");
 const server = join(dist, "server");
+const githubPagesBasePath = process.env.GITHUB_PAGES === "true" ? "/ARP2" : "";
 const pages = new Map();
 
 async function exists(path) {
@@ -36,6 +37,16 @@ function rewriteImageOptimizerUrls(html) {
   return html.replace(/(?:\/[^/"']+)?\/_next\/image\?url=([^&"']+)&amp;w=\d+&amp;q=\d+/g, (_, encodedUrl) => {
     return decodeURIComponent(encodedUrl);
   });
+}
+
+function prefixGithubPagesPublicUrls(text) {
+  if (!githubPagesBasePath) {
+    return text;
+  }
+
+  return text
+    .replace(/(?<![\w:-])\/(assets|catalogues)\//g, `${githubPagesBasePath}/$1/`)
+    .replace(/(?<![\w:-])\/(robots\.txt|sitemap\.xml)/g, `${githubPagesBasePath}/$1`);
 }
 
 async function walk(dir, visitor) {
@@ -81,6 +92,21 @@ await walk(appOutput, async (source) => {
     const target = join(client, rel);
     await mkdir(dirname(target), { recursive: true });
     await writeFile(target, await readFile(source));
+  }
+});
+
+await walk(client, async (source) => {
+  const extension = extname(source);
+
+  if (![".html", ".js", ".css", ".xml", ".txt"].includes(extension)) {
+    return;
+  }
+
+  const current = await readFile(source, "utf8");
+  const updated = prefixGithubPagesPublicUrls(current);
+
+  if (updated !== current) {
+    await writeFile(source, updated);
   }
 });
 
