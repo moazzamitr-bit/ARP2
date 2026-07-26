@@ -7,6 +7,7 @@ const nextConfig = {
   basePath: isGithubPages ? githubPagesBasePath : undefined,
   images: {
     formats: ["image/avif", "image/webp"],
+    ...(isGithubPages ? { unoptimized: true } : {}),
   },
 };
 
