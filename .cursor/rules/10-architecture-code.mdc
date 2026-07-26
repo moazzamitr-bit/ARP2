@@ -1,0 +1,75 @@
+---
+description: Project architecture, TypeScript quality, components, state/data, forms, and routing standards.
+globs: **/*.{ts,tsx,js,jsx,vue,svelte,css,scss,sass,less,html,json}
+alwaysApply: false
+---
+
+# Architecture and Code Quality
+
+## Project Structure
+
+- Follow the repository folder and naming conventions exactly.
+- Keep layers clear when the project separates them: `ui/`, `components/`, `features/`, `hooks/`, `lib/`, `services/`, `stores/`, `types/`, `styles/`, `tests/`.
+- Page/route files orchestrate; reusable UI lives in shared components.
+- Keep business rules out of pure presentational components when the project separates those concerns.
+- Do not introduce a new architecture style unless requested or already established.
+- Avoid circular imports and cross-feature deep coupling.
+- Keep client/server boundaries correct for the framework. Do not mark large trees client-only without need.
+- Colocate tests, stories, and styles when that is the local convention.
+- Do not hand-edit generated files, build output, or vendor bundles.
+
+## Code Quality
+
+- Prefer simple, readable code over clever abstractions.
+- Keep components focused and composable.
+- Avoid large prop APIs when composition would be clearer.
+- Use TypeScript intentionally. Avoid `any` unless no better local type exists.
+- Extract helpers only when duplication or complexity justifies it.
+- Preserve naming conventions for files, components, hooks, utilities, types, and tests.
+- Remove dead code introduced by the change.
+- Do not leave console logs, debug UI, commented-out code, or temporary TODOs unless explicitly requested.
+
+## Components
+
+- Reuse existing shared components before creating new ones.
+- Extend variant systems instead of forking near-duplicate components.
+- Keep prop APIs small, typed, and composable.
+- Forward refs and support native attributes for interactive components when the local pattern expects it.
+- Support polymorphic/`asChild` patterns only if already used or clearly consistent.
+- Components must tolerate real content: long labels, empty data, loading delays, errors, RTL, and translated strings.
+
+## State and Data
+
+- Preserve the project's data-fetching and caching approach.
+- Keep server state and client UI state distinct.
+- Derived values should be computed, not duplicated into state.
+- Handle loading, empty, error, success, revalidating, and optimistic states when UX requires them.
+- Avoid unnecessary re-renders, unstable identities, broad context values, and expensive work in render.
+- Validate API response shape assumptions before binding UI deeply to them.
+- Pagination, filtering, and search should be URL-shareable when that matches product patterns.
+
+## Forms
+
+- Use the project's form + schema stack.
+- Client validation is for UX only; never treat it as a security boundary.
+- Preserve user input after validation failures.
+- Prevent double-submit on slow networks.
+- Associate errors with fields; provide a summary when helpful.
+- Use correct input types, autocomplete, input modes, and mobile-friendly controls.
+- Dangerous actions need confirmation and clear consequence copy.
+
+## Routing and Flows
+
+- Preserve routing conventions and deep-link behavior.
+- Navigation must communicate current location with active/`aria-current` states.
+- Preserve scroll restoration and focus management on route transitions when supported.
+- Multi-step flows should make progress, back navigation, and abandonment safe.
+- Do not break browser back/forward expectations.
+
+## Dependencies
+
+- Use the repo's package manager and existing tooling versions.
+- Do not upgrade majors unless required by the task.
+- Prefer platform APIs and existing utilities over new libraries.
+- When a UI primitive is needed and no accessible local solution exists, prefer Radix/React Aria/Base UI-class primitives over custom keyboard widgets.
+- Do not import a second competing component library into a project that already has one.

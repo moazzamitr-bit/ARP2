@@ -1,0 +1,59 @@
+---
+description: Frontend security and privacy standards based on OWASP and modern SPA threat models.
+alwaysApply: true
+---
+
+# Security and Privacy
+
+Assume anything shipped to the browser is public.
+
+## Secrets and Config
+
+- Never put secrets, private API keys, client secrets, private tokens, or signing keys in frontend code or public env vars (`NEXT_PUBLIC_*`, `VITE_*`, `REACT_APP_*`, etc.).
+- Public env vars are configuration, not secrets.
+- Do not commit `.env` files with credentials, private certificates, or service-account keys.
+
+## XSS and HTML Injection
+
+- Rely on framework auto-escaping.
+- Avoid `dangerouslySetInnerHTML`, `innerHTML`, `v-html`, `{@html}` unless unavoidable.
+- If raw HTML is required, sanitize with a maintained allowlist sanitizer in a centralized helper.
+- Prefer Trusted Types / strict CSP strategies when the project supports them.
+- Do not invent security bypasses (`unsafe-inline`, disabled CSRF, wildcard CORS with credentials, skipped sanitization) to “make it work”.
+
+## Auth, Sessions, and Tokens
+
+- Prefer HttpOnly + Secure + SameSite cookies / BFF session patterns over storing access tokens in `localStorage`.
+- If tokens must exist in JS memory, keep lifetimes short and treat XSS defenses as load-bearing.
+- Preserve CSRF protections for cookie-based mutating requests.
+- OAuth/OIDC in SPAs should use Authorization Code + PKCE and validate `state` (and nonce where applicable).
+- Client-side role checks are UX only. Authorization must be enforced by the backend.
+- Do not bypass auth gates, permission checks, or route guards unless explicitly building a public surface.
+
+## CSRF, CORS, Framing, and Headers
+
+- Preserve anti-CSRF tokens/header patterns.
+- Do not weaken CORS to `*` with credentials.
+- Preserve security headers posture where configurable: CSP, `frame-ancestors`/`X-Frame-Options`, `nosniff`, referrer policy, permissions policy.
+- Avoid clickjacking-prone embedding unless product requires it with deliberate controls.
+
+## Untrusted Data and URLs
+
+- Treat all user-generated content, rich text, markdown, filenames, and query params as untrusted.
+- Validate/sanitize redirect targets, `href`, `src`, iframe URLs, and embed URLs. Block `javascript:` and open redirects.
+- Be careful with `postMessage` origin checks, third-party widgets, and markdown renderers.
+- Do not render credentials, tokens, or sensitive PII into pages, logs, analytics, or error UI.
+
+## Supply Chain and Third Parties
+
+- Add dependencies only when necessary; prefer maintained packages already aligned with the stack.
+- Avoid installing packages for trivial one-liners.
+- Preserve lockfiles and security tooling.
+- Third-party scripts should use SRI/integrity and strict provenance when supported.
+- Review new dependency risk carefully before adding.
+
+## Privacy
+
+- Do not log passwords, tokens, session IDs, full payment data, or sensitive PII.
+- Respect consent requirements for analytics/marketing scripts when present.
+- Minimize data exposure in client state, URLs, and error messages.

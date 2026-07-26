@@ -1,0 +1,58 @@
+---
+description: UI craft, design tokens, visual hierarchy, responsive layout, interaction states, and design-system consistency.
+globs: **/*.{ts,tsx,js,jsx,vue,svelte,css,scss,sass,less,html,mdx}
+alwaysApply: false
+---
+
+# UI and Design System
+
+## Design Tokens
+
+- Treat design tokens as the single source of truth for color, typography, spacing, radius, shadow, z-index, motion, and breakpoints.
+- Prefer semantic tokens over raw primitives in component code.
+- Do not hardcode hex/rgb/hsl, magic spacing, or one-off z-index values when tokens/utilities exist.
+- Align with W3C DTCG-style token thinking when token files exist: primitives → semantic → component tokens.
+- Theme via tokens/CSS variables (light/dark/brand), not duplicated component style branches.
+- Keep typography on a clear scale; avoid random font sizes/weights.
+- Maintain consistent spacing rhythm and alignment.
+- Elevation, borders, and surfaces must remain coherent across the product.
+- If a brand system exists, it outranks generic aesthetic preferences.
+
+## Visual Craft
+
+- Primary screens should read as one clear composition, not a cluttered dashboard of competing blocks (unless the product is a dashboard).
+- Strong hierarchy: primary action > secondary actions > supporting content > metadata.
+- Every interactive control needs appropriate states: default, hover, focus-visible, active, disabled, loading, error, success, empty.
+- Provide realistic empty, loading, and error UI for data-driven views.
+- Prefer clear affordances over mystery interactions.
+- Target sizes should meet WCAG 2.2 guidance (minimum ~24x24 CSS px; prefer larger for primary touch targets).
+- Sticky headers, toasts, cookie bars, and chat widgets must not fully obscure focused elements.
+- Do not rely on hover-only essential actions.
+- Forms, tables, dialogs, navigation, and menus should feel consistent in density and behavior.
+- Avoid generic AI-looking UI defaults when the project has a defined brand: weak branding, random purple gradients, inconsistent radii, badge clutter, and card spam.
+
+## Responsive Design
+
+- Mobile, tablet, laptop, and desktop are first-class.
+- Use fluid layouts, wrapping, min/max constraints, and project breakpoints.
+- Validate critical screens around ~390, 768, 1024, and 1440 widths when possible.
+- Prevent overflow from long text, translations, badges, tables, and dynamic content.
+- Tables and dense data views need a mobile strategy: stack, prioritized columns, or intentional horizontal scroll with affordance.
+- Consider touch targets, safe areas, and virtual keyboards for mobile web.
+
+## Styling
+
+- Follow the project's styling system exactly (Tailwind, CSS Modules, Sass, vanilla CSS, etc.).
+- Do not mix styling approaches in one area unless the repo already does.
+- Prefer token-backed utilities and shared variants (e.g. CVA) over ad hoc class soup.
+- Keep style order predictable: layout → spacing → typography → color → state → responsive.
+- Avoid global style leakage and overly specific selectors.
+- Dark mode and theming must use the project's established mechanism.
+- Motion should reinforce hierarchy and feedback. Respect `prefers-reduced-motion`.
+- Animate transform/opacity when possible; avoid layout-thrashing animations.
+
+## Matching Provided Designs
+
+- When matching a screenshot, mockup, Figma export, or PDF page: compare layout, spacing, type, color, hierarchy, states, and responsive behavior — not only approximate vibes.
+- Extract reusable values into tokens/components when the project supports that.
+- Keep implementation production-ready: semantic structure, responsive behavior, and interactive states even if the static design shows only one state.

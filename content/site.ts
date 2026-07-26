@@ -1,0 +1,49 @@
+﻿import type { ContactDetails, Metric } from "./types";
+
+export const site = {
+  name: "Al Raed Pioneers",
+  shortName: "ARP",
+  domain: "https://arpgroup.ae",
+  description:
+    "Official sports brand distribution partner in the UAE for wholesale buyers, retailers, institutions and customers.",
+  foundingYear: "1969",
+  assets: {
+    homeHero: "/assets/samples/heroes/24.webp",
+    aboutHero: "/assets/samples/heroes/about-building.webp",
+    wholesaleHero: "/assets/samples/heroes/wholesale-handshake.webp",
+    brandHero: "/assets/samples/heroes/badminton-athlete.webp",
+    store: "/assets/samples/heroes/storefront.webp",
+    footerRunner: "/assets/samples/heroes/footer-athlete.webp",
+    brandsSkyline: "/assets/samples/heroes/dubai-skyline.webp",
+    productShoe: "/assets/samples/products/shoe-main.jpg",
+    partners: {
+      yonex: "/assets/samples/logos/yonex.png",
+      adidas: "/assets/samples/logos/adidas.png",
+      mizuno: "/assets/samples/logos/mizuno.png",
+      wilson: "/assets/samples/logos/wilson.png",
+    },
+  },
+};
+
+export const approvedMetrics: Metric[] = [
+  { value: "55+", label: "Years of Experience" },
+  { value: "12+", label: "Sports Categories" },
+  { value: "3", label: "Physical Locations" },
+  { value: "1,500+", label: "Local Customers" },
+];
+
+/** Real details from the ARP business card supplied 25 July 2026. */
+export const contactDetails: ContactDetails = {
+  telephone: "+971 4 222 3928",
+  email: "info@arpgroup.ae",
+  officeAddress: "Shop No 1, Al Gassimi Bldg No 2, Souq Al Khabeer, Bur Dubai, Dubai, UAE",
+  businessHours: "Sunday - Saturday, client-supplied hours",
+};
+
+/** Partner marks shown on homepage. */
+export const globalPartners = [
+  { name: "Yonex", src: "/assets/samples/logos/yonex.png", href: "/brands/yonex" },
+  { name: "adidas", src: "/assets/samples/logos/adidas.png", href: "/brands" },
+  { name: "Mizuno", src: "/assets/samples/logos/mizuno.png", href: "/brands" },
+  { name: "Wilson", src: "/assets/samples/logos/wilson.png", href: "/brands" },
+] as const;

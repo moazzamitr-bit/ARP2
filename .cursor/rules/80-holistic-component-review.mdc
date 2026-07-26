@@ -1,0 +1,109 @@
+---
+description: When asked to review or fix a UI part like header/footer/form, inspect and correct the full related surface including mobile, search, states, and dependencies.
+alwaysApply: true
+---
+
+# Holistic Component and Section Review
+
+When the user asks to review, fix, improve, or implement a named UI part (for example “header”, “footer”, “sidebar”, “form”, “card”, “modal”, “nav”), do not treat it as a single isolated visual block.
+Inspect and correct the full related surface area.
+
+## Default Expansion Rule
+
+Expand the request to include:
+
+1. all variants of that part
+2. all breakpoints
+3. all interactive subparts
+4. all states
+5. all dependent behaviors and files
+
+Example: “بررسی هدر” / “check the header” means review and fix at least:
+
+- desktop header layout and spacing
+- logo / brand treatment
+- primary navigation
+- secondary actions / CTAs
+- mobile menu / hamburger / drawer / sheet
+- open, close, escape, overlay, scroll-lock, and focus behavior for mobile nav
+- active/current link states
+- search UI if present or implied by the product/header pattern
+- search open/close, suggestions, clear, empty, loading, and keyboard behavior if search exists
+- auth/account menu, language switcher, theme toggle, notifications, or cart if present in that header system
+- sticky/fixed behavior, shadow/border on scroll, z-index stacking
+- accessibility: keyboard, focus-visible, aria-expanded, labels, landmarks
+- responsive overflow, wrapping, and touch targets
+- header interaction with page content (offset, overlap, focus not obscured)
+
+## Common Surfaces and What They Include
+
+### Header / Navbar
+- brand, nav links, CTA, utilities
+- mobile navigation and animation/transition
+- search, account, locale, theme, notifications, cart if part of the same system
+- sticky behavior, height, z-index, contrast over hero/media
+
+### Footer
+- link groups, legal links, social icons
+- newsletter/form if present
+- responsive stacking, spacing, contrast, focusable links
+- metadata/copyright consistency
+
+### Sidebar / Dashboard Nav
+- collapsed/expanded states
+- active item, nested items, mobile drawer equivalent
+- keyboard and screen-reader labels
+- content area offset and overflow
+
+### Forms
+- labels, validation, error text, helper text
+- disabled/loading submit
+- keyboard submit, autocomplete, input modes
+- success/error summaries
+- related dialogs or confirmations
+
+### Cards / Lists / Tables
+- empty/loading/error states
+- responsive alternative layouts
+- action menus, truncation, alignment
+- row/card hover-focus behaviors
+
+### Modal / Drawer / Popover / Dropdown
+- trigger, open/close, overlay
+- focus trap and restore
+- escape and outside click according to pattern
+- scroll lock and stacking context
+- mobile sizing and keyboard handling
+
+### Search
+- input, submit/clear, keyboard enter
+- results/suggestions/no-results/loading
+- debounce and accessibility announcements when relevant
+- integration with header/mobile nav when search lives there
+
+## Review Procedure
+
+When asked to review/fix a part:
+
+1. Locate the main component and all related files (mobile menu, search, hooks, styles, tests, stories).
+2. Map the full surface: subcomponents, breakpoints, states, and integrations.
+3. Fix issues across that whole surface, not only the obvious desktop markup.
+4. Verify keyboard use, responsive behavior, and state coverage.
+5. Report what related areas were included in the review.
+
+## Do Not Do This
+
+- Do not only restyle the desktop bar and ignore mobile menu behavior.
+- Do not ignore search/account/locale controls that belong to the same component system.
+- Do not leave broken open/close, focus, overlay, or scroll-lock behavior.
+- Do not declare a header/nav “done” if mobile navigation is incomplete.
+- Do not invent unrelated product features, but do complete implied parts of the same UI system.
+
+## Response Contract
+
+When finishing such a task, briefly state:
+
+- which related subparts were reviewed
+- which breakpoints/states were covered
+- what was fixed
+- any remaining risks outside the current scope

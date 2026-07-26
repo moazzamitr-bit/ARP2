@@ -1,0 +1,57 @@
+---
+description: Testing, verification, review, git hygiene, and delivery checklist for frontend work.
+globs: **/*.{ts,tsx,js,jsx,vue,svelte,css,scss,sass,less,html,md,mdx,json}
+alwaysApply: false
+---
+
+# Testing and Delivery
+
+## Testing Mindset
+
+Prefer coverage that matches risk:
+
+- Unit/integration: pure logic, hooks, reducers, schema validation
+- Component tests: critical interactions and accessible roles/names
+- End-to-end: money paths, auth, checkout, onboarding, destructive actions
+- Accessibility checks: axe/Lighthouse plus manual keyboard pass for changed flows
+- Visual/story checks: key states and variants when Storybook/Chromatic/equivalent exists
+
+## Required Verification When Available
+
+1. typecheck
+2. lint
+3. relevant unit/component tests
+4. relevant e2e tests
+5. build
+6. responsive/a11y sanity for UI changes
+
+If environment limits prevent a check, state exactly what could not run and what was still verified.
+
+## Pre-Finish Review
+
+Review the diff for:
+
+- hardcoded design values that should be tokens
+- accessibility regressions
+- responsive breakage
+- security/privacy leaks
+- accidental API/contract changes
+- dead code / debug leftovers
+- unnecessary dependency additions
+- unrelated formatting churn
+
+## Git and Delivery
+
+- Keep commits focused and descriptive.
+- Do not revert unrelated user work.
+- Do not edit lockfiles, generated artifacts, or wide formatting unless required.
+- Do not change public APIs, persisted contracts, routes, or design tokens without clear need.
+
+## Final Response Shape
+
+Include:
+
+- what changed
+- why it changed
+- verification performed
+- residual risks

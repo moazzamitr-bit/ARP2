@@ -1,0 +1,103 @@
+import type { Brand, BrandCategory } from "./types";
+
+export const brandCategories: BrandCategory[] = [
+  "Racquet Sports",
+  "Table Tennis",
+  "Cricket",
+  "Sports Goods",
+  "Supports & Recovery",
+];
+
+export const brands: Brand[] = [
+  {
+    name: "Yonex",
+    slug: "yonex",
+    category: "Racquet Sports",
+    logoText: "YONEX",
+    logoClass: "brand-logo-yonex",
+    logoSrc: "/assets/samples/logos/yonex.png",
+    description: "Performance equipment for badminton, tennis and racquet sport players.",
+    introduction:
+      "Founded in 1946 and headquartered in Tokyo, Japan, Yonex is a global performance brand trusted across 120+ countries. ARP represents Yonex in the UAE with official distribution, local support and clear pathways for wholesale and retail partners.",
+    relationship:
+      "ARP is the official distribution partner of Yonex in the UAE — connecting authorized products with retailers, clubs, institutions and athletes.",
+    categories: ["Racquets", "Shoes", "Apparel", "Shuttlecocks", "Bags & Accessories"],
+    catalogue: { label: "Download Catalogue", url: "/catalogues/yonex-catalogue.pdf" },
+    globalWebsite: "https://www.yonex.com/",
+  },
+  {
+    name: "STIGA",
+    slug: "stiga",
+    category: "Table Tennis",
+    logoText: "STIGA",
+    logoClass: "brand-logo-stiga",
+    logoSrc: "/assets/samples/logos/stiga.png",
+    description: "Table tennis equipment and sports goods for clubs, players and institutions.",
+    introduction: "STIGA profile text is managed in the content layer for final client replacement.",
+    relationship: "ARP supports STIGA availability through approved UAE business channels.",
+    categories: ["Tables", "Blades", "Rubbers", "Balls", "Accessories"],
+    catalogue: { label: "Download Catalogue", url: "/catalogues/stiga-catalogue.pdf" },
+    globalWebsite: "https://www.stigasports.com/",
+  },
+  {
+    name: "Cosco",
+    slug: "cosco",
+    category: "Sports Goods",
+    logoText: "COSCO",
+    logoClass: "brand-logo-cosco",
+    logoSrc: "/assets/samples/logos/cosco.png",
+    description: "Multi-sport goods for schools, clubs, retailers and institutional supply.",
+    introduction: "Cosco content is intentionally concise until ARP supplies approved brand copy.",
+    relationship: "ARP connects Cosco sports goods to wholesale and retail demand across the UAE.",
+    categories: ["Balls", "Fitness", "Training", "Team Sports", "Accessories"],
+    catalogue: { label: "Download Catalogue", url: "/catalogues/cosco-catalogue.pdf" },
+    globalWebsite: "https://www.cosco.in/",
+  },
+  {
+    name: "LP Support",
+    slug: "lp-support",
+    category: "Supports & Recovery",
+    logoText: "LP SUPPORT",
+    logoClass: "brand-logo-lp",
+    logoSrc: "/assets/samples/logos/lp-support.png",
+    description: "Supports and recovery products for sport, training and everyday performance.",
+    introduction: "LP Support profile details are stored here for final approved replacement.",
+    relationship: "ARP provides local access, reseller support and B2B pathways for LP Support.",
+    categories: ["Braces", "Supports", "Recovery", "Protection", "Accessories"],
+    catalogue: { label: "Download Catalogue", url: "/catalogues/lp-support-catalogue.pdf" },
+    globalWebsite: "https://www.lpsupport.com/",
+  },
+  {
+    name: "SS Cricket",
+    slug: "ss-cricket",
+    category: "Cricket",
+    logoText: "SS CRICKET",
+    logoClass: "brand-logo-ss",
+    logoSrc: "/assets/samples/logos/ss-cricket.png",
+    description: "Cricket equipment for players, teams, academies and retail partners.",
+    introduction: "SS Cricket content is replaceable and should be finalized by ARP.",
+    relationship: "ARP supports SS Cricket distribution needs for UAE cricket buyers and retailers.",
+    categories: ["Bats", "Protective Gear", "Balls", "Bags", "Training"],
+    catalogue: { label: "Download Catalogue", url: "/catalogues/ss-cricket-catalogue.pdf" },
+    globalWebsite: "https://www.sstoncricket.com/",
+  },
+  {
+    name: "Surco",
+    slug: "surco",
+    category: "Sports Goods",
+    displayCategory: "Sports Accessories",
+    logoText: "SURCO",
+    logoClass: "brand-logo-surco",
+    logoSrc: "/assets/samples/logos/surco.png",
+    description: "Sports goods and equipment for active retail and institutional channels.",
+    introduction: "Surco brand text remains content-ready until final ARP approval.",
+    relationship: "ARP positions Surco for local supply, retail and partner availability.",
+    categories: ["Sports Goods", "Training", "Fitness", "Team Sports", "Accessories"],
+    catalogue: { label: "Download Catalogue", url: "/catalogues/surco-catalogue.pdf" },
+    globalWebsite: "https://surcosports.com/",
+  },
+];
+
+export function getBrand(slug: string) {
+  return brands.find((brand) => brand.slug === slug);
+}

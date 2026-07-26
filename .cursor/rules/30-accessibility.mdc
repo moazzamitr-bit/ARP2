@@ -1,0 +1,45 @@
+---
+description: WCAG 2.2 AA accessibility standards for keyboard, focus, semantics, ARIA, forms, contrast, and media.
+globs: **/*.{ts,tsx,js,jsx,vue,svelte,css,scss,sass,less,html,mdx}
+alwaysApply: false
+---
+
+# Accessibility (WCAG 2.2 AA)
+
+## Foundations
+
+- Semantic HTML first. ARIA only when native semantics are insufficient.
+- First rule of ARIA: do not use ARIA to fix bad markup if a native element exists.
+- All functionality must be keyboard operable with logical tab order matching reading order.
+- Visible focus indicators are mandatory. Never remove outlines without an equal or better `:focus-visible` replacement.
+- Buttons perform actions; links navigate. Do not fake either with non-accessible clickable divs.
+- Icon-only controls need accessible names (`aria-label` or visually hidden text).
+
+## Focus and Keyboard
+
+- Avoid keyboard traps. Dialogs may trap focus, but must restore focus on close.
+- Focused elements must not be fully obscured by sticky headers, toasts, cookie bars, or overlays.
+- Prefer `tabindex="0"` or `-1` only. Do not use positive tabindex values.
+- Custom widgets (tabs, menus, comboboxes, disclosure) must follow WAI-ARIA Authoring Practices or use battle-tested primitives (Radix, React Aria, Base UI).
+
+## Forms and Feedback
+
+- Inputs need labels, descriptions, error association, and correct types/autocomplete.
+- Status messages/toasts should be announced accessibly without unnecessary noise.
+- Visible label text should be included in the accessible name.
+- Authentication and forms must not rely on cognitive puzzles when alternatives exist.
+
+## Contrast and Perception
+
+- Text contrast >= 4.5:1 (large text >= 3:1).
+- UI components, icons, and focus indicators >= 3:1 against adjacent colors.
+- Do not convey meaning by color alone.
+- Respect `prefers-reduced-motion` for non-essential animation.
+- Images need meaningful alt text, empty alt for decorative images, and captions/transcripts for media when needed.
+
+## Targets and Robustness
+
+- Interactive targets should be at least ~24x24 CSS px; prefer larger for primary touch controls.
+- Keep name, role, and value synchronized with visual state (`aria-expanded`, `aria-selected`, `aria-pressed`, etc.).
+- Do not hide focusable elements with `aria-hidden="true"`.
+- Prefer accessible component primitives over hand-rolled widgets for complex interactions.

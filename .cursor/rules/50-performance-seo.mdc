@@ -1,0 +1,53 @@
+---
+description: Core Web Vitals performance, asset strategy, SEO metadata, and content structure standards.
+globs: **/*.{ts,tsx,js,jsx,vue,svelte,css,scss,sass,less,html,md,mdx}
+alwaysApply: false
+---
+
+# Performance and SEO
+
+## Core Web Vitals Targets
+
+- LCP <= 2.5s
+- INP <= 200ms
+- CLS <= 0.1
+
+## Performance Rules
+
+- Optimize the LCP element (usually hero media/headline). Use correct image priority, sizing, and modern formats when available.
+- Reserve space for media/embeds/async content to prevent CLS (`width`/`height` or `aspect-ratio`).
+- Break up long main-thread tasks; debounce expensive handlers; defer non-critical scripts.
+- Prefer framework image/font/script optimizations.
+- Self-host and subset fonts when possible; use non-blocking font loading strategies approved by the project.
+- Code-split by route/feature; avoid shipping unused interactive weight to content pages.
+- Do not add heavy dependencies for trivial utilities.
+- Animate transform/opacity when possible; avoid layout-thrashing animations.
+- Lazy-load below-the-fold or heavy widgets only when it improves UX and does not harm critical paths.
+- Treat third-party scripts (analytics, chat, tags) as performance and security risk; load them intentionally.
+
+## SEO and Content Structure
+
+- Maintain logical heading hierarchy and meaningful document structure.
+- Keep titles, descriptions, canonicals, Open Graph/Twitter metadata, and robots directives correct for the framework.
+- Prefer indexable server-rendered or statically available critical content when SEO matters.
+- Use descriptive link text; avoid “click here”.
+- Add structured data only when product-relevant and valid.
+- Keep social preview images and share metadata correct after UI changes.
+
+## Internationalization and Content
+
+- Preserve existing i18n frameworks and message catalogs.
+- No hardcoded user-facing strings when translations are used.
+- Layouts must tolerate longer translations and compact scripts.
+- Support RTL when required; prefer logical CSS properties over physical left/right assumptions when available.
+- Use locale-aware date/number/currency formatting (`Intl` or project utilities).
+- Avoid concatenated translated sentences that break grammar in other languages.
+
+## Resilience and Observability
+
+- Fail visibly and safely. Prefer useful empty/error states over blank screens or infinite spinners.
+- Error boundaries should recover gracefully without leaking sensitive internals.
+- Distinguish network, auth, permission, not-found, and validation failures when relevant.
+- Retries should be bounded and non-destructive.
+- Keep logging structured and free of secrets.
+- Preserve existing monitoring/analytics instrumentation unless asked to change it.

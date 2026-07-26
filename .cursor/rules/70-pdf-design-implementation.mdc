@@ -1,0 +1,90 @@
+---
+description: Pixel-faithful implementation from PDF/Figma/screenshots, plus on-brand creative design for missing sections.
+alwaysApply: true
+---
+
+# PDF and Design Implementation
+
+When the user provides a PDF, Figma export, screenshot, or mockup, treat it as the visual source of truth for designed parts, and as the style guide for undesigned parts.
+
+## Input Handling
+
+- Prefer page images from the PDF. If only a PDF is provided, ask for or generate clear page renders/screenshots of each relevant page when needed for fidelity.
+- Work page by page and section by section. Do not invent conflicts with explicit design frames.
+- If multiple pages exist, extract a shared design system before implementing one-off styles.
+- When the user attaches images of the PDF pages, inspect them carefully for spacing, type, color, alignment, and component structure.
+
+## Phase 1 — Extract the Design System from the PDF
+
+Before coding, identify and reuse:
+
+- color palette (brand, text, surfaces, borders, accents, states)
+- typography scale (families, sizes, weights, line-heights, letter-spacing)
+- spacing rhythm and section paddings
+- radius, borders, shadows, and elevation
+- button/link/input styles and states if visible
+- grid, container width, and alignment rules
+- icon style and image treatment
+- motion cues only if clearly implied
+
+Turn repeated values into tokens/utilities/components when the project supports that.
+
+## Phase 2 — Pixel-Faithful Implementation for Designed Sections
+
+For sections that appear in the PDF/design:
+
+- Implement as close as practical to the design: layout, spacing, typography, color, hierarchy, and component structure.
+- Match desktop composition first when the PDF is desktop-first, then adapt responsively without destroying the design intent.
+- Preserve visual hierarchy and relative proportions from the design.
+- Do not “simplify away” important brand details, decorative structure, or section rhythm unless technically necessary.
+- If exact fonts/assets are missing, choose the closest available match and note the substitution.
+- Static designs usually show one state. Still implement production states: hover, focus-visible, active, disabled, loading, error, empty, and mobile equivalents.
+- Prefer reusable components over page-only duplication when the same pattern repeats in the PDF.
+
+Fidelity checklist for each designed section:
+
+- container width and alignment
+- section padding and gaps
+- heading/body size and weight
+- colors and contrast
+- media placement and cropping intent
+- CTA style and placement
+- card/list/grid structure
+- divider/line treatments
+- icon sizes and optical alignment
+
+## Phase 3 — Creative Fill for Missing Sections
+
+For sections, pages, or states that are requested but not shown in the PDF:
+
+- Do not paste a generic unrelated UI style.
+- Extend the PDF’s design language: same tokens, type scale, spacing rhythm, radius, button language, and density.
+- Invent layout creatively, but keep brand continuity obvious.
+- Prefer compositions that feel like a natural continuation of the designed pages.
+- Include complete UX for missing parts: responsive layout, interaction states, empty/loading/error if data-driven.
+- If content is unspecified, use realistic placeholder content that matches the product tone.
+- When creativity is required, briefly explain the design decisions and how they derive from the PDF system.
+
+Creative-fill priority order:
+
+1. reuse patterns already visible in the PDF
+2. adapt nearby sections of the same page
+3. invent a new section that still feels native to the same brand system
+
+## Conflict Resolution
+
+- Explicit PDF design wins over generic taste for designed sections.
+- Accessibility, security, and responsive usability win over blind pixel-copy when a conflict exists.
+- If a PDF detail is impossible or harmful on web (unreadable type size, impossible hover-only essential action, broken contrast), implement the closest accessible equivalent and note the adaptation.
+- If the PDF and the existing codebase design system conflict, ask which source of truth should win; if the user said “follow the PDF”, follow the PDF for the requested surface while still integrating cleanly into the codebase.
+
+## Delivery Expectations for Design Tasks
+
+A design implementation is complete only when:
+
+- designed sections closely match the PDF/mockup
+- missing sections feel on-brand and intentionally designed
+- responsive behavior is handled
+- interactive and edge states are implemented
+- tokens/components are reused where appropriate
+- accessibility and production quality are not sacrificed for visuals
