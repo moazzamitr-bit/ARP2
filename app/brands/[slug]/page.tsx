@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { BookOpen, Download, ShieldCheck } from "lucide-react";
+import { BookOpen, Download, MessageCircle, ShieldCheck } from "lucide-react";
 import { BrandProductBrowser } from "@/components/brands/BrandProductBrowser";
 import { BrandLogo } from "@/components/brands/BrandLogo";
 import { HeroVisual } from "@/components/ui/HeroVisual";
@@ -30,10 +30,17 @@ export default function BrandDetailPage({
   if (!brand) notFound();
   const products = getProductsByBrand(brand.slug);
   const isYonex = brand.slug === "yonex";
+  const heroImages: Record<string, string> = {
+    yonex: "/assets/samples/heroes/badminton-athlete.webp",
+    stiga: "/assets/samples/heroes/22.webp",
+    cosco: "/assets/samples/heroes/team-sports.webp",
+    "lp-support": "/assets/samples/heroes/home-athlete.webp",
+  };
+  const heroImage = heroImages[brand.slug] ?? site.assets.brandHero;
 
   return (
     <>
-      <section className="brand-detail-hero brand-detail-hero-proposal">
+      <section className={`brand-detail-hero brand-detail-hero-proposal revision-brand-detail revision-brand-${brand.slug}`}>
         <Container>
           <nav className="breadcrumb" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
@@ -87,10 +94,16 @@ export default function BrandDetailPage({
                   </Link>
                 </span>
               </p>
+              <div className="revision-brand-actions">
+                <a className="revision-button revision-button-primary" href={`https://wa.me/971526347429?text=${encodeURIComponent(`Hello ARP Group, I am interested in ${brand.name} products.`)}`} target="_blank" rel="noreferrer">
+                  <MessageCircle size={17} aria-hidden="true" /> Contact Main Office
+                </a>
+                <Link className="revision-button" href="/products">Browse Products</Link>
+              </div>
             </div>
             <HeroVisual
               className="brand-detail-image"
-              src={site.assets.brandHero}
+              src={heroImage}
               alt={`${brand.name} athlete`}
               objectPosition="center right"
               priority
