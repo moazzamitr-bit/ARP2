@@ -2107,7 +2107,7 @@ position: absolute !important;
 
 .footer-main {
   display: grid;
-  grid-template-columns: minmax(180px, 1.25fr) repeat(5, minmax(0, 1fr)) minmax(160px, 1fr);
+  grid-template-columns: minmax(180px, 1.25fr) repeat(4, minmax(0, 1fr)) minmax(160px, 1fr);
   gap: 28px 18px;
   padding: 56px 0 48px;
 }

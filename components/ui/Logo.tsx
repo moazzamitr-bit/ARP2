@@ -6,10 +6,10 @@ export function Logo() {
   return (
     <Link href="/" className="logo-mark" aria-label="Al Raed Pioneers home">
       <Image
-        src="/assets/samples/logos/arp-official.png?v=5"
+        src="/assets/samples/logos/arp-lockup.png"
         alt="Al Raed Pioneers"
-        width={620}
-        height={180}
+        width={683}
+        height={137}
         priority
         unoptimized
         className="logo-lockup-img"

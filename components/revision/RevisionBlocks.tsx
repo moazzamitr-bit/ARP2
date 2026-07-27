@@ -119,6 +119,38 @@ const venueSlides = [
   { src: "/assets/samples/heroes/23.webp", alt: "Premium indoor sports venue" },
 ] as const;
 
+const awardsSlides = [
+  { src: "/assets/samples/events/event-award.webp", alt: "Yonex award presentation at an ARP sporting event", caption: "Recognition on court - celebrating sporting achievement with our partners." },
+  { src: "/assets/samples/events/event-ceremony.webp", alt: "Sporting event ceremony with Yonex awards", caption: "Event ceremony - moments that bring athletes, partners and communities together." },
+  { src: "/assets/samples/events/event-teams.webp", alt: "Teams gathered at an ARP-supported sporting event", caption: "Teams and community - supporting the people behind every sporting milestone." },
+  { src: "/assets/samples/events/event-officials.webp", alt: "Event officials and guests at a Yonex sporting event", caption: "Partners and officials - trusted relationships that help sport move forward." },
+] as const;
+
+export function AwardsGallery() {
+  const [active, setActive] = useState(0);
+  const current = awardsSlides[active];
+  const showPrevious = () => setActive((index) => (index - 1 + awardsSlides.length) % awardsSlides.length);
+  const showNext = () => setActive((index) => (index + 1) % awardsSlides.length);
+
+  return (
+    <div className="revision-awards-gallery" aria-roledescription="carousel" aria-label="ARP events and recognition gallery">
+      <figure className="revision-awards-main">
+        <Image src={current.src} alt={current.alt} fill priority sizes="(max-width: 900px) 100vw, 72vw" />
+        <button type="button" className="revision-gallery-prev" onClick={showPrevious} aria-label="Previous event image"><ChevronLeft size={22} /></button>
+        <button type="button" className="revision-gallery-next" onClick={showNext} aria-label="Next event image"><ChevronRight size={22} /></button>
+        <figcaption aria-live="polite"><strong>{active + 1} / {awardsSlides.length}</strong>{current.caption}</figcaption>
+      </figure>
+      <div className="revision-awards-thumbs" role="tablist" aria-label="Choose an event image">
+        {awardsSlides.map((image, index) => (
+          <button type="button" role="tab" key={image.src} className={index === active ? "is-active" : ""} onClick={() => setActive(index)} aria-selected={index === active} aria-label={`View event image ${index + 1}: ${image.caption}`}>
+            <Image src={image.src} alt="" fill sizes="(max-width: 700px) 22vw, 148px" />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function VenueGallery() {
   const [active, setActive] = useState(0);
   const current = venueSlides[active];

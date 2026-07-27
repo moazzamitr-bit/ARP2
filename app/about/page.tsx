@@ -12,7 +12,7 @@ import {
   Target,
   Users,
 } from "lucide-react";
-import { ChannelPartnersCarousel } from "@/components/revision/RevisionBlocks";
+import { AwardsGallery, ChannelPartnersCarousel } from "@/components/revision/RevisionBlocks";
 import { Metrics } from "@/components/sections/Metrics";
 import { LinkButton } from "@/components/ui/Button";
 import { HeroVisual } from "@/components/ui/HeroVisual";
@@ -98,6 +98,17 @@ export default function AboutPage() {
             <p>Our brands reach customers through leading sports retailers, hypermarkets and marketplaces.</p>
           </div>
           <ChannelPartnersCarousel />
+        </Container>
+      </section>
+
+      <section className="revision-awards">
+        <Container>
+          <div className="revision-section-head">
+            <p className="revision-section-kicker">Events &amp; recognition</p>
+            <h2>Awards, people and sporting milestones</h2>
+            <p>A look at the events, ceremonies and partnerships that celebrate sport in the UAE.</p>
+          </div>
+          <AwardsGallery />
         </Container>
       </section>
 
