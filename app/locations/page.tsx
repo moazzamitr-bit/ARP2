@@ -1,49 +1,59 @@
-import { LocationsExplorer } from "@/components/locations/LocationsExplorer";
+import Image from "next/image";
+import { Clock3, MapPin, MessageCircle, Navigation, Phone } from "lucide-react";
 import { Container } from "@/components/ui/Section";
-import { site } from "@/content/site";
-import { storeBranches } from "@/content/storeNetwork";
+import { officialBranches } from "@/content/storeNetwork";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
-  "Find ARP Near You",
-  "Explore ARP showrooms, partner stores and service points across Dubai, Abu Dhabi, Sharjah and Al Ain — with opening hours, directions and contact details.",
+  "ARP Official Branches",
+  "Find the three official ARP branches in Dubai with phone, WhatsApp and directions.",
   "/locations",
 );
 
 export default function LocationsPage() {
-  const localBusinessJsonLd = storeBranches.map((store) => ({
-    "@context": "https://schema.org",
-    "@type": "SportingGoodsStore",
-    name: store.name,
-    address: store.address,
-    telephone: store.phone,
-    areaServed: store.city,
-    url: `${site.domain}/locations`,
-  }));
-
   return (
-    <section className="locations-page">
-      <Container>
-        <LocationsExplorer
-          intro={
-            <div className="locations-intro">
-              <div className="breadcrumb">Home / Locations</div>
-              <p className="proposal-eyebrow">
-                <span className="proposal-eyebrow-rule" aria-hidden="true" />
-                Always Close To You
-              </p>
-              <h1>Find ARP Near You</h1>
-              <p className="locations-lede">
-                Explore our showrooms, partners, and service points across the UAE.
-              </p>
-            </div>
-          }
-        />
-      </Container>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
-      />
-    </section>
+    <main className="revision-locations-page">
+      <section className="revision-page-hero">
+        <Container>
+          <p className="revision-section-kicker">Official ARP network</p>
+          <h1>Visit an ARP Branch</h1>
+          <p>Choose from our three official branches. Each location offers genuine products and direct support from the ARP team.</p>
+        </Container>
+      </section>
+
+      <section className="revision-branches">
+        <Container>
+          <div className="revision-section-head">
+            <p className="revision-section-kicker">Three official locations</p>
+            <h2>Our branches</h2>
+          </div>
+          <div className="revision-branch-grid">
+            {officialBranches.map((branch, index) => {
+              const whatsappDigits = branch.whatsapp.replace(/\D/g, "");
+              const phoneDigits = branch.phone.replace(/\D/g, "");
+              return (
+                <article className="revision-branch-card" id={branch.id} key={branch.id}>
+                  <div className="revision-branch-image">
+                    <Image src={branch.image} alt={branch.name} fill sizes="(max-width: 900px) 100vw, 33vw" />
+                    <span>Branch {index + 1}</span>
+                  </div>
+                  <div className="revision-branch-copy">
+                    <small>{branch.kind}</small>
+                    <h2>{branch.name}</h2>
+                    <p><MapPin size={17} aria-hidden="true" /> {branch.address}</p>
+                    <p><Clock3 size={17} aria-hidden="true" /> {branch.hoursSummary}</p>
+                    <div className="revision-branch-actions">
+                      <a href={`tel:+${phoneDigits}`}><Phone size={17} aria-hidden="true" /> Call</a>
+                      <a href={`https://wa.me/${whatsappDigits}`} target="_blank" rel="noreferrer"><MessageCircle size={17} aria-hidden="true" /> WhatsApp</a>
+                      <a href={branch.directionsUrl} target="_blank" rel="noreferrer"><Navigation size={17} aria-hidden="true" /> Directions</a>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+    </main>
   );
 }
