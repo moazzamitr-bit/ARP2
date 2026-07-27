@@ -799,3 +799,621 @@
   .revision-button { transition: none; }
   .revision-partner-track { animation: none; }
 }
+
+
+/* PDF revision page compositions */
+.revision-page-hero,
+.revision-contact-hero,
+.revision-reseller-hero {
+  padding: clamp(8rem, 13vw, 11rem) 0 clamp(3.5rem, 7vw, 6rem);
+  background:
+    radial-gradient(circle at 84% 22%, rgba(58, 192, 109, 0.16), transparent 28%),
+    linear-gradient(135deg, #eef5ff, #fff);
+}
+
+.revision-page-hero h1,
+.revision-contact-intro h1,
+.revision-reseller-hero h1,
+.revision-venue-hero-copy h1 {
+  max-width: 850px;
+  margin: 0;
+  color: var(--revision-blue);
+  font-size: clamp(2.7rem, 6vw, 5.7rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.revision-page-hero p:last-child,
+.revision-contact-intro > p:last-child,
+.revision-reseller-hero p:last-child,
+.revision-venue-hero-copy > p {
+  max-width: 720px;
+  color: var(--revision-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.revision-branches,
+.revision-reseller-network,
+.revision-reseller-help,
+.revision-contact-page,
+.revision-venue-gallery-section,
+.revision-venue-facilities,
+.revision-channel-partners,
+.revision-documents,
+.revision-about-timeline {
+  padding: clamp(4.5rem, 8vw, 7rem) 0;
+}
+
+.revision-branch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.revision-branch-card {
+  overflow: hidden;
+  scroll-margin-top: 120px;
+  border: 1px solid var(--revision-line);
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: 0 18px 44px rgba(20, 47, 84, 0.09);
+}
+
+.revision-branch-image {
+  position: relative;
+  min-height: 210px;
+  overflow: hidden;
+}
+
+.revision-branch-image img {
+  object-fit: cover;
+}
+
+.revision-branch-image::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, transparent 50%, rgba(4, 28, 64, 0.68));
+}
+
+.revision-branch-image > span {
+  position: absolute;
+  z-index: 1;
+  right: 16px;
+  bottom: 14px;
+  padding: 0.45rem 0.75rem;
+  color: #fff;
+  border-radius: 999px;
+  background: var(--revision-green);
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
+.revision-branch-copy {
+  padding: 1.45rem;
+}
+
+.revision-branch-copy > small {
+  color: var(--revision-green);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.revision-branch-copy h2 {
+  margin: 0.35rem 0 1rem;
+  color: var(--revision-blue);
+  font-size: 1.28rem;
+}
+
+.revision-branch-copy > p {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  color: var(--revision-muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.revision-branch-copy > p svg {
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+  color: var(--revision-green);
+}
+
+.revision-branch-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.25rem;
+}
+
+.revision-branch-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 38px;
+  padding: 0.55rem 0.72rem;
+  color: var(--revision-blue);
+  border: 1px solid var(--revision-line);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.revision-reseller-hero > div,
+.revision-reseller-help > div {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.revision-auth-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 0 0 auto;
+  padding: 0.85rem 1.1rem;
+  color: #147342;
+  border: 1px solid rgba(58, 192, 109, 0.35);
+  border-radius: 999px;
+  background: rgba(58, 192, 109, 0.1);
+  font-weight: 800;
+}
+
+.revision-reseller-primary,
+.revision-reseller-secondary {
+  display: grid;
+  gap: 1rem;
+}
+
+.revision-reseller-primary {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.revision-reseller-secondary {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+.revision-reseller-logo {
+  display: grid;
+  min-height: 150px;
+  padding: 1.3rem;
+  place-content: center;
+  text-align: center;
+  border: 1px solid var(--revision-line);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 16px 36px rgba(20, 47, 84, 0.07);
+}
+
+.revision-reseller-primary .revision-reseller-logo {
+  min-height: 215px;
+  background: linear-gradient(145deg, #fff, #eef6ff);
+}
+
+.revision-reseller-logo strong {
+  color: var(--revision-blue-dark);
+  font-size: clamp(1.3rem, 2.5vw, 2.1rem);
+  letter-spacing: -0.03em;
+}
+
+.revision-reseller-logo small {
+  margin-top: 0.5rem;
+  color: var(--revision-muted);
+}
+
+.revision-reseller-logo svg {
+  margin: 0 auto 0.7rem;
+  color: var(--revision-green);
+}
+
+.revision-reseller-help {
+  background: var(--revision-surface);
+}
+
+.revision-ceo {
+  padding: clamp(4.5rem, 8vw, 7rem) 0;
+  border-radius: 0;
+}
+
+.revision-ceo-card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.revision-ceo-mark {
+  display: grid;
+  width: 70px;
+  height: 70px;
+  place-items: center;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.revision-ceo small {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.revision-timeline-icon {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  color: var(--revision-green);
+}
+
+.revision-channel-partners {
+  background: var(--revision-surface);
+}
+
+.revision-document-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.revision-document-grid article {
+  min-height: 240px;
+  padding: 1.5rem;
+  border: 1px solid var(--revision-line);
+  border-radius: 24px;
+  background: linear-gradient(145deg, #fff, #eef5fd);
+}
+
+.revision-document-grid article > span {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  color: var(--revision-green);
+  border-radius: 16px;
+  background: #e9f8ef;
+}
+
+.revision-document-grid h3 {
+  margin: 2.2rem 0 0.5rem;
+  color: var(--revision-blue);
+}
+
+.revision-document-grid p,
+.revision-document-grid small {
+  color: var(--revision-muted);
+  line-height: 1.6;
+}
+
+.revision-document-grid small {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.7rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.revision-process {
+  display: block;
+  padding: clamp(4.5rem, 8vw, 7rem) 0;
+  background: var(--revision-surface);
+}
+
+.revision-process::before {
+  display: none;
+}
+
+.revision-process-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.revision-process-list li {
+  position: relative;
+  min-height: 270px;
+  padding: 1.7rem;
+  border: 1px solid var(--revision-line);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 18px 42px rgba(20, 47, 84, 0.08);
+}
+
+.revision-process-number {
+  color: var(--revision-green);
+  font-size: 0.75rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.revision-process-icon {
+  display: grid;
+  width: 50px;
+  height: 50px;
+  margin: 1.25rem 0;
+  place-items: center;
+  color: #fff;
+  border-radius: 15px;
+  background: var(--revision-blue);
+}
+
+.revision-process-list h3 {
+  margin: 0 0 0.6rem;
+  color: var(--revision-blue);
+}
+
+.revision-process-list p {
+  color: var(--revision-muted);
+  line-height: 1.65;
+}
+
+.revision-process-arrow {
+  position: absolute;
+  top: 50%;
+  right: -1.1rem;
+  z-index: 2;
+  color: var(--revision-green);
+  transform: translateY(-50%);
+}
+
+.revision-venue-hero {
+  display: block;
+  padding: clamp(8rem, 13vw, 11rem) 0 clamp(4.5rem, 8vw, 7rem);
+  color: #fff;
+  background:
+    linear-gradient(90deg, rgba(3, 29, 71, 0.94), rgba(3, 29, 71, 0.53)),
+    url('/assets/samples/heroes/21.webp') center/cover;
+}
+
+.revision-venue-hero-copy {
+  max-width: 760px;
+}
+
+.revision-venue-hero-copy h1,
+.revision-venue-hero-copy > p {
+  color: #fff;
+}
+
+.revision-venue-hours {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 1.4rem;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.revision-venue-facilities {
+  background: var(--revision-surface);
+}
+
+.revision-facility-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.revision-facility-grid li {
+  padding: 1.5rem;
+  border: 1px solid var(--revision-line);
+  border-radius: 22px;
+  background: #fff;
+}
+
+.revision-facility-grid svg {
+  color: var(--revision-green);
+}
+
+.revision-facility-grid h3 {
+  color: var(--revision-blue);
+}
+
+.revision-facility-grid p {
+  color: var(--revision-muted);
+  line-height: 1.65;
+}
+
+.revision-venue-cta {
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+  color: #fff;
+  background: linear-gradient(135deg, #052b68, #0871c9);
+}
+
+.revision-venue-cta > div {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.revision-venue-cta h2,
+.revision-venue-cta p {
+  color: #fff;
+}
+
+.revision-contact-page {
+  padding: 0;
+  background: #fff;
+}
+
+.revision-contact-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding: 1rem;
+  border-radius: 30px;
+}
+
+.revision-contact-details {
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+}
+
+.revision-contact-details > small {
+  color: var(--revision-green);
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.revision-contact-details h2 {
+  margin: 0.35rem 0 1.4rem;
+  color: var(--revision-blue);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+}
+
+.revision-contact-details ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.revision-contact-details li {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 16px;
+  background: var(--revision-surface);
+}
+
+.revision-contact-details li > svg {
+  flex: 0 0 auto;
+  color: var(--revision-green);
+}
+
+.revision-contact-details li span,
+.revision-contact-details li a,
+.revision-contact-details li strong {
+  display: block;
+  margin: 0;
+}
+
+.revision-contact-details li strong {
+  margin-bottom: 0.25rem;
+  color: var(--revision-blue);
+  font-size: 0.78rem;
+}
+
+.revision-contact-details li span {
+  color: var(--revision-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.revision-contact-map h3 {
+  margin: 0.5rem 0;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.revision-contact-map a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  margin-top: 1rem;
+  color: #fff;
+  font-weight: 800;
+}
+
+.revision-brand-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.4rem;
+}
+
+.revision-brand-detail .brand-detail-image {
+  min-height: 520px;
+  overflow: hidden;
+  border-radius: 36px;
+  box-shadow: 0 30px 65px rgba(20, 47, 84, 0.17);
+}
+
+.revision-brand-detail .brand-detail-image img {
+  object-fit: cover;
+}
+
+.revision-brand-stiga {
+  background: radial-gradient(circle at 80% 20%, rgba(208, 30, 39, 0.14), transparent 30%), linear-gradient(180deg, #fff8f8, #fff) !important;
+}
+
+.revision-brand-cosco {
+  background: radial-gradient(circle at 80% 20%, rgba(247, 157, 32, 0.16), transparent 30%), linear-gradient(180deg, #fffaf2, #fff) !important;
+}
+
+.revision-brand-lp-support {
+  background: radial-gradient(circle at 80% 20%, rgba(31, 175, 91, 0.14), transparent 30%), linear-gradient(180deg, #f4fff8, #fff) !important;
+}
+
+.revision-product-whatsapp,
+.revision-featured-buy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 100%;
+  min-height: 40px;
+  margin-top: 0.9rem;
+  padding: 0.55rem 0.8rem;
+  color: #fff;
+  border-radius: 999px;
+  background: #1faf5b;
+  font-size: 0.74rem;
+  font-weight: 850;
+}
+
+@media (max-width: 1000px) {
+  .revision-branch-grid,
+  .revision-reseller-primary,
+  .revision-process-list {
+    grid-template-columns: 1fr;
+  }
+
+  .revision-reseller-secondary,
+  .revision-document-grid,
+  .revision-facility-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .revision-process-arrow {
+    display: none;
+  }
+
+  .revision-contact-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .revision-reseller-hero > div,
+  .revision-reseller-help > div,
+  .revision-venue-cta > div {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .revision-reseller-secondary,
+  .revision-document-grid,
+  .revision-facility-grid,
+  .revision-contact-details ul {
+    grid-template-columns: 1fr;
+  }
+
+  .revision-ceo-card {
+    grid-template-columns: 1fr;
+  }
+
+  .revision-contact-card {
+    padding: 0.5rem;
+  }
+}
