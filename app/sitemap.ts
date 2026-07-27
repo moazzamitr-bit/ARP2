@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { brands } from "@/content/brands";
 import { newsArticles } from "@/content/news";
-import { featuredProducts } from "@/content/products";
 import { site } from "@/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/products",
     "/sports",
     "/solutions",
+    "/venue",
+    "/contact",
     "/wholesale",
     "/news",
     "/locations",
@@ -27,14 +28,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.domain}/brands/${brand.slug}`, lastModified: new Date() },
     { url: `${site.domain}/brands/${brand.slug}/partnership`, lastModified: new Date() },
   ]);
-  const productRoutes = featuredProducts.map((product) => ({
-    url: `${site.domain}/brands/${product.brandSlug}/products/${product.slug}`,
-    lastModified: new Date(),
-  }));
   const newsRoutes = newsArticles.map((article) => ({
     url: `${site.domain}/news/${article.slug}`,
     lastModified: new Date(article.date),
   }));
 
-  return [...staticRoutes, ...brandRoutes, ...productRoutes, ...newsRoutes];
+  return [...staticRoutes, ...brandRoutes, ...newsRoutes];
 }
