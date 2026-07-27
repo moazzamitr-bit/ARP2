@@ -27,7 +27,7 @@ const trustIcons = [ShieldCheck, Truck, RefreshCw];
 
 export function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer revision-footer">
       <div className="container-shell">
         {/* 1. CTA + Newsletter */}
         <div className="footer-cta">
