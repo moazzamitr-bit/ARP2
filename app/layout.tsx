@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingSocialActions } from "@/components/revision/RevisionBlocks";
 import { site } from "@/content/site";
 import "./globals.css";
+import "./revision.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -34,12 +36,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={montserrat.variable}>
       <body className={montserrat.className}>
-        <a className="skip-link" href="#main-content">
-          Skip to content
-        </a>
+        <a className="skip-link" href="#main-content">Skip to content</a>
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
+        <FloatingSocialActions />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
