@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import {
   ArrowRight,
   CircleDot,
+  MessageCircle,
   Footprints,
   Shirt,
   Waypoints,
@@ -70,9 +71,9 @@ export function BrandProductBrowser({ brand, products }: BrandProductBrowserProp
         <FeaturedProductsSlider brand={brand} products={visibleProducts} />
         <div className="hero-actions brand-detail-actions">
           <LinkButton href="/wholesale">Wholesale Inquiry</LinkButton>
-          <LinkButton href="/authorized-resellers" variant="secondary">
-            Find a Retailer
-          </LinkButton>
+          <a className="revision-button" href="https://wa.me/971526347429?text=Hello%20ARP%20Group%2C%20I%20need%20help%20with%20a%20brand%20product." target="_blank" rel="noreferrer">
+            <MessageCircle size={17} aria-hidden="true" /> Contact Main Office
+          </a>
         </div>
       </div>
     </>
