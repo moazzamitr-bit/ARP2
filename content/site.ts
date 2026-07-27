@@ -1,4 +1,4 @@
-﻿import type { ContactDetails, Metric } from "./types";
+import type { ContactDetails, Metric } from "./types";
 
 export const site = {
   name: "Al Raed Pioneers",
@@ -29,18 +29,16 @@ export const approvedMetrics: Metric[] = [
   { value: "55+", label: "Years of Experience" },
   { value: "12+", label: "Sports Categories" },
   { value: "3", label: "Physical Locations" },
-  { value: "1,500+", label: "Local Customers" },
+  { value: "900+", label: "Retail Partners" },
 ];
 
-/** Real details from the ARP business card supplied 25 July 2026. */
 export const contactDetails: ContactDetails = {
-  telephone: "+971 4 222 3928",
+  telephone: "+971 4 355 5589",
   email: "info@arpgroup.ae",
   officeAddress: "Shop No 1, Al Gassimi Bldg No 2, Souq Al Khabeer, Bur Dubai, Dubai, UAE",
-  businessHours: "Sunday - Saturday, client-supplied hours",
+  businessHours: "Monday - Friday, 8:00 AM - 4:00 PM",
 };
 
-/** Partner marks shown on homepage. */
 export const globalPartners = [
   { name: "Yonex", src: "/assets/samples/logos/yonex.png", href: "/brands/yonex" },
   { name: "adidas", src: "/assets/samples/logos/adidas.png", href: "/brands" },
