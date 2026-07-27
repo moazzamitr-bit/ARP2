@@ -17,7 +17,7 @@ import {
   Users,
 } from "lucide-react";
 import { BrandLogo } from "@/components/brands/BrandLogo";
-import { HomeHeroCarousel, whatsappHref } from "@/components/revision/RevisionBlocks";
+import { HomeHeroCarousel } from "@/components/revision/RevisionBlocks";
 import { Metrics } from "@/components/sections/Metrics";
 import { LinkButton } from "@/components/ui/Button";
 import { Panel } from "@/components/ui/Panel";
@@ -40,6 +40,8 @@ const pillarIcons = [Lightbulb, Scale, HeartHandshake, Leaf, Globe];
 const latestArticles = [...newsArticles].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
 const yonex = brands.find((brand) => brand.slug === "yonex");
 const secondaryBrands = brands.filter((brand) => ["stiga", "cosco", "lp-support"].includes(brand.slug));
+
+const whatsappHref = "https://wa.me/971526347429?text=Hello%20ARP%20Group";
 
 export default function HomePage() {
   return (
