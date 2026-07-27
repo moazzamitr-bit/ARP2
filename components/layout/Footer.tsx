@@ -4,11 +4,13 @@ import {
   Activity,
   ArrowRight,
   ChevronDown,
+  Clock,
   Facebook,
   Instagram,
   Linkedin,
   Mail,
   MapPin,
+  MessageCircle,
   Phone,
   RefreshCw,
   ShieldCheck,
@@ -82,7 +84,7 @@ export function Footer() {
               <Link href="#" aria-label="Facebook">
                 <Facebook size={17} aria-hidden="true" />
               </Link>
-              <Link href="#" aria-label="Instagram">
+              <Link href="https://www.instagram.com/arpgroup.ae/" target="_blank" rel="noreferrer" aria-label="Instagram">
                 <Instagram size={17} aria-hidden="true" />
               </Link>
               <Link href="#" aria-label="LinkedIn">
@@ -116,10 +118,18 @@ export function Footer() {
               <Phone size={15} aria-hidden="true" />
               {contactDetails.telephone}
             </a>
+            <a href="https://wa.me/971526347429" target="_blank" rel="noreferrer">
+              <MessageCircle size={15} aria-hidden="true" />
+              +971 52 634 7429
+            </a>
             <a href={`mailto:${contactDetails.email}`}>
               <Mail size={15} aria-hidden="true" />
               {contactDetails.email}
             </a>
+            <span>
+              <Clock size={15} aria-hidden="true" />
+              Monday - Friday, 8:00 AM - 4:00 PM
+            </span>
             <span>
               <MapPin size={15} aria-hidden="true" />
               {contactDetails.officeAddress}
@@ -152,7 +162,7 @@ export function Footer() {
 
         {/* 4. Legal */}
         <div className="footer-legal">
-          <p>© 2024 ARP Group. All rights reserved.</p>
+          <p>© 2026 ARP Group. All rights reserved.</p>
           <div className="footer-legal-links">
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/terms">Terms & Conditions</Link>
