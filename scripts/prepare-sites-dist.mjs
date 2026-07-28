@@ -8,6 +8,7 @@ const client = join(dist, "client");
 const server = join(dist, "server");
 const githubPagesBasePath = process.env.GITHUB_PAGES === "true" ? "/ARP2" : "";
 const pages = new Map();
+const referencedPublicAssets = new Set();
 
 async function exists(path) {
   try {
@@ -63,6 +64,28 @@ async function walk(dir, visitor) {
   );
 }
 
+async function collectPublicAssetReferences(dir) {
+  await walk(dir, async (source) => {
+    if (![".ts", ".tsx", ".css", ".mjs"].includes(extname(source))) {
+      return;
+    }
+
+    const text = await readFile(source, "utf8");
+    for (const match of text.matchAll(/["'`](\/(?:assets|catalogues)\/[^"'`?#\s)]+)/g)) {
+      referencedPublicAssets.add(match[1]);
+    }
+  });
+}
+
+async function pruneUnreferencedPublicAssets(dir) {
+  await walk(dir, async (source) => {
+    const publicUrl = `/${relative(client, source).replaceAll("\\", "/")}`;
+    if (!referencedPublicAssets.has(publicUrl)) {
+      await rm(source, { force: true });
+    }
+  });
+}
+
 await rm(dist, { recursive: true, force: true });
 await mkdir(client, { recursive: true });
 await mkdir(server, { recursive: true });
@@ -75,6 +98,13 @@ await cp(join(root, ".openai/hosting.json"), join(dist, ".openai/hosting.json"))
 if (await exists(join(root, "public/assets/images/hero-sports-distribution.png"))) {
   await cp(join(root, "public"), client, { recursive: true });
   await rm(join(client, "catalogues/cosco-catalogue.pdf"), { force: true });
+  await Promise.all([
+    collectPublicAssetReferences(join(root, "app")),
+    collectPublicAssetReferences(join(root, "components")),
+    collectPublicAssetReferences(join(root, "content")),
+  ]);
+  await pruneUnreferencedPublicAssets(join(client, "assets"));
+  await pruneUnreferencedPublicAssets(join(client, "catalogues"));
 }
 
 await walk(appOutput, async (source) => {
