@@ -50,7 +50,10 @@ export const brands: Brand[] = [
     introduction: "Cosco content is intentionally concise until ARP supplies approved brand copy.",
     relationship: "ARP connects Cosco sports goods to wholesale and retail demand across the UAE.",
     categories: ["Balls", "Fitness", "Training", "Team Sports", "Accessories"],
-    catalogue: { label: "Download Catalogue", url: "/catalogues/cosco-catalogue.pdf" },
+    catalogue: {
+      label: "Download Catalogue",
+      url: "https://raw.githubusercontent.com/moazzamitr-bit/ARP2/main/public/catalogues/cosco-catalogue.pdf",
+    },
     globalWebsite: "https://www.cosco.in/",
   },
   {

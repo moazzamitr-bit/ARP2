@@ -74,6 +74,7 @@ await cp(join(root, ".openai/hosting.json"), join(dist, ".openai/hosting.json"))
 
 if (await exists(join(root, "public/assets/images/hero-sports-distribution.png"))) {
   await cp(join(root, "public"), client, { recursive: true });
+  await rm(join(client, "catalogues/cosco-catalogue.pdf"), { force: true });
 }
 
 await walk(appOutput, async (source) => {
