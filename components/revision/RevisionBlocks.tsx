@@ -114,9 +114,10 @@ export function ChannelPartnersCarousel({ compact = false }: { compact?: boolean
 }
 
 const venueSlides = [
-  { src: "/assets/samples/heroes/21.webp", alt: "Yonex concept badminton court" },
-  { src: "/assets/samples/heroes/22.webp", alt: "Badminton court facilities" },
-  { src: "/assets/samples/heroes/23.webp", alt: "Premium indoor sports venue" },
+  { src: "/assets/samples/events/event-award.webp", alt: "Yonex award presentation on an indoor badminton court" },
+  { src: "/assets/samples/events/event-ceremony.webp", alt: "Young athletes at a Yonex badminton ceremony" },
+  { src: "/assets/samples/events/event-teams.webp", alt: "Yonex badminton teams gathered on court" },
+  { src: "/assets/samples/events/event-officials.webp", alt: "Yonex event officials at an indoor badminton venue" },
 ] as const;
 
 const awardsSlides = [
@@ -138,7 +139,13 @@ export function AwardsGallery() {
         <Image src={current.src} alt={current.alt} fill priority sizes="(max-width: 900px) 100vw, 72vw" />
         <button type="button" className="revision-gallery-prev" onClick={showPrevious} aria-label="Previous event image"><ChevronLeft size={22} /></button>
         <button type="button" className="revision-gallery-next" onClick={showNext} aria-label="Next event image"><ChevronRight size={22} /></button>
-        <figcaption aria-live="polite"><strong>{active + 1} / {awardsSlides.length}</strong>{current.caption}</figcaption>
+        <figcaption aria-live="polite">
+          <span className="revision-gallery-count">{active + 1} / {awardsSlides.length}</span>
+          <span>
+            <small>ARP in the community</small>
+            <strong>{current.caption}</strong>
+          </span>
+        </figcaption>
       </figure>
       <div className="revision-awards-thumbs" role="tablist" aria-label="Choose an event image">
         {awardsSlides.map((image, index) => (
@@ -157,7 +164,7 @@ export function VenueGallery() {
 
   return (
     <div className="revision-venue-gallery">
-      <div className="revision-venue-main">
+      <figure className="revision-venue-main">
         <Image src={current.src} alt={current.alt} fill priority sizes="(max-width: 900px) 100vw, 64vw" />
         <button type="button" className="revision-gallery-prev" onClick={() => setActive((active - 1 + venueSlides.length) % venueSlides.length)} aria-label="Previous venue image">
           <ChevronLeft size={22} />
@@ -165,10 +172,11 @@ export function VenueGallery() {
         <button type="button" className="revision-gallery-next" onClick={() => setActive((active + 1) % venueSlides.length)} aria-label="Next venue image">
           <ChevronRight size={22} />
         </button>
-      </div>
-      <div className="revision-venue-thumbs">
+        <figcaption><span>Yonex Concept Badminton Court</span><strong>{current.alt}</strong></figcaption>
+      </figure>
+      <div className="revision-venue-thumbs" role="tablist" aria-label="Choose a venue image">
         {venueSlides.map((image, index) => (
-          <button type="button" key={image.src} className={index === active ? "is-active" : ""} onClick={() => setActive(index)} aria-label={`View venue image ${index + 1}`}>
+          <button type="button" role="tab" key={image.src} className={index === active ? "is-active" : ""} onClick={() => setActive(index)} aria-selected={index === active} aria-label={`View venue image ${index + 1}`}>
             <Image src={image.src} alt="" fill sizes="120px" />
           </button>
         ))}

@@ -634,7 +634,7 @@
 
 .revision-venue-thumbs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.75rem;
   margin-top: 0.75rem;
 }
@@ -951,6 +951,19 @@
   justify-content: space-between;
 }
 
+/* Keep the reseller marks in the first desktop viewport, as requested in the brief. */
+.revision-reseller-hero {
+  padding: clamp(3.5rem, 6vw, 4.75rem) 0 clamp(1.5rem, 3vw, 2rem);
+}
+
+.revision-reseller-network {
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.revision-reseller-network .revision-section-head {
+  margin-bottom: 1.25rem;
+}
+
 .revision-auth-badge {
   display: inline-flex;
   align-items: center;
@@ -992,7 +1005,7 @@
 }
 
 .revision-reseller-primary .revision-reseller-logo {
-  min-height: 215px;
+  min-height: 180px;
   background: linear-gradient(145deg, #fff, #eef6ff);
 }
 
@@ -1169,7 +1182,7 @@
   color: #fff;
   background:
     linear-gradient(90deg, rgba(3, 29, 71, 0.94), rgba(3, 29, 71, 0.53)),
-    url('/assets/samples/heroes/21.webp') center/cover;
+    url('/assets/samples/heroes/23.webp') center/cover;
 }
 
 .revision-venue-hero-copy {
@@ -1375,19 +1388,36 @@
 }
 
 .revision-awards { padding: clamp(4.5rem, 8vw, 7rem) 0; background: linear-gradient(180deg, #f5f8fc 0%, #fff 100%); }
-.revision-awards-gallery { display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 1rem; max-width: 1040px; }
-.revision-awards-main { position: relative; min-height: clamp(320px, 52vw, 600px); margin: 0; overflow: hidden; border-radius: 28px; background: var(--revision-blue-dark); box-shadow: 0 28px 65px rgba(20, 47, 84, 0.2); }
+.revision-awards-gallery { max-width: 1120px; }
+.revision-awards-main { position: relative; aspect-ratio: 16 / 8.5; margin: 0; overflow: hidden; border-radius: 30px; background: var(--revision-blue-dark); box-shadow: 0 28px 65px rgba(20, 47, 84, 0.2); }
 .revision-awards-main > img, .revision-awards-thumbs button img { object-fit: cover; }
 .revision-awards-main .revision-gallery-prev, .revision-awards-main .revision-gallery-next { position: absolute; top: 50%; z-index: 2; transform: translateY(-50%); }
 .revision-awards-main .revision-gallery-prev { left: 1rem; }
 .revision-awards-main .revision-gallery-next { right: 1rem; }
-.revision-awards-main figcaption { position: absolute; right: 0; bottom: 0; left: 0; z-index: 1; display: flex; gap: 0.8rem; align-items: baseline; padding: 1.15rem 1.35rem; color: #fff; background: linear-gradient(transparent, rgba(5, 43, 104, 0.9)); font-size: 0.92rem; line-height: 1.5; }
-.revision-awards-main figcaption strong { color: var(--revision-green); white-space: nowrap; }
-.revision-awards-thumbs { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
-.revision-awards-thumbs button { position: relative; min-height: 110px; overflow: hidden; border: 3px solid transparent; border-radius: 16px; background: var(--revision-blue-dark); opacity: 0.72; transition: opacity 180ms ease, border-color 180ms ease, transform 180ms ease; }
+.revision-awards-main figcaption { position: absolute; right: 0; bottom: 0; left: 0; z-index: 1; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: end; padding: 3.25rem 1.5rem 1.35rem; color: #fff; background: linear-gradient(transparent, rgba(5, 43, 104, 0.92)); font-size: 0.92rem; line-height: 1.5; }
+.revision-gallery-count { display: grid; width: 50px; height: 34px; place-items: center; border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 10px; color: var(--revision-green); font-size: 0.76rem; font-weight: 850; }
+.revision-awards-main figcaption small, .revision-awards-main figcaption strong { display: block; }
+.revision-awards-main figcaption small { margin-bottom: 0.2rem; color: var(--revision-green); font-size: 0.7rem; font-weight: 850; letter-spacing: 0.12em; text-transform: uppercase; }
+.revision-awards-main figcaption strong { font-size: clamp(1rem, 1.5vw, 1.25rem); line-height: 1.32; }
+.revision-awards-thumbs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; margin-top: 0.9rem; }
+.revision-awards-thumbs button { position: relative; aspect-ratio: 1.55 / 1; overflow: hidden; border: 3px solid transparent; border-radius: 16px; background: var(--revision-blue-dark); opacity: 0.72; transition: opacity 180ms ease, border-color 180ms ease, transform 180ms ease; }
 .revision-awards-thumbs button:hover { opacity: 1; transform: translateY(-2px); }
 .revision-awards-thumbs button.is-active { border-color: var(--revision-green); opacity: 1; }
 .revision-awards-main button:focus-visible, .revision-awards-thumbs button:focus-visible { outline: 3px solid #fff; outline-offset: -6px; }
+
+.revision-venue-main { aspect-ratio: 16 / 8.5; min-height: 0; margin: 0; }
+.revision-venue-main figcaption { position: absolute; right: 0; bottom: 0; left: 0; display: grid; gap: 0.15rem; padding: 3.2rem 1.3rem 1rem; color: #fff; background: linear-gradient(transparent, rgba(5, 43, 104, 0.88)); }
+.revision-venue-main figcaption span { color: var(--revision-green); font-size: 0.7rem; font-weight: 850; letter-spacing: 0.12em; text-transform: uppercase; }
+.revision-venue-main figcaption strong { font-size: 1rem; text-transform: capitalize; }
+.revision-venue-experience { padding: clamp(4.5rem, 8vw, 7rem) 0; background: #fff; }
+.revision-venue-experience-head { display: flex; gap: 2rem; align-items: end; justify-content: space-between; }
+.revision-venue-experience-head .revision-section-head { margin-bottom: 2.3rem; }
+.revision-venue-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding: 0; margin: 0; list-style: none; }
+.revision-venue-steps li { min-height: 255px; padding: 1.65rem; border: 1px solid var(--revision-line); border-radius: 24px; background: linear-gradient(145deg, #fff, #f4f8ff); box-shadow: 0 16px 36px rgba(20, 47, 84, 0.07); }
+.revision-venue-steps > li > span { color: var(--revision-green); font-size: 0.76rem; font-weight: 850; letter-spacing: 0.12em; }
+.revision-venue-step-icon { display: grid; width: 48px; height: 48px; margin: 1.25rem 0; place-items: center; border-radius: 15px; color: #fff; background: var(--revision-blue); }
+.revision-venue-steps h3 { margin: 0 0 0.55rem; color: var(--revision-blue); font-size: 1.2rem; }
+.revision-venue-steps p { margin: 0; color: var(--revision-muted); line-height: 1.7; }
 
 @media (max-width: 1000px) {
   .revision-branch-grid,
@@ -1409,9 +1439,7 @@
   .revision-contact-card {
     grid-template-columns: 1fr;
   }
-  .revision-awards-gallery { grid-template-columns: 1fr; }
-  .revision-awards-thumbs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .revision-awards-thumbs button { min-height: 90px; }
+  .revision-venue-steps { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 700px) {
@@ -1436,10 +1464,15 @@
   .revision-contact-card {
     padding: 0.5rem;
   }
-  .revision-awards-main { min-height: 350px; border-radius: 20px; }
-  .revision-awards-main figcaption { align-items: flex-start; flex-direction: column; gap: 0.25rem; padding: 1rem; font-size: 0.8rem; }
+  .revision-awards-main { aspect-ratio: 1.25 / 1; border-radius: 20px; }
+  .revision-awards-main figcaption { gap: 0.75rem; padding: 4rem 1rem 1rem; font-size: 0.8rem; }
+  .revision-gallery-count { width: 42px; height: 30px; }
   .revision-awards-main .revision-gallery-prev { left: 0.65rem; }
   .revision-awards-main .revision-gallery-next { right: 0.65rem; }
   .revision-awards-thumbs { gap: 0.45rem; }
-  .revision-awards-thumbs button { min-height: 64px; border-width: 2px; border-radius: 10px; }
+  .revision-awards-thumbs button { border-width: 2px; border-radius: 10px; }
+  .revision-venue-main { aspect-ratio: 1.25 / 1; min-height: 350px; }
+  .revision-venue-experience-head { align-items: flex-start; flex-direction: column; }
+  .revision-venue-experience-head .revision-section-head { margin-bottom: 0; }
+  .revision-venue-steps li { min-height: 0; }
 }

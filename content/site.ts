@@ -36,7 +36,7 @@ export const contactDetails: ContactDetails = {
   telephone: "+971 4 355 5589",
   email: "info@arpgroup.ae",
   officeAddress: "Shop No 1, Al Gassimi Bldg No 2, Souq Al Khabeer, Bur Dubai, Dubai, UAE",
-  businessHours: "Monday - Friday, 8:00 AM - 4:00 PM",
+  businessHours: "Monday-Friday 8:00 AM-4:00 PM",
 };
 
 export const globalPartners = [

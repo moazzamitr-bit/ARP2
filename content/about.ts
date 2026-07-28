@@ -9,7 +9,7 @@ export const aboutContent = {
   },
   /** Condensed from ARP Corporate Profile 2024 ("Our History"). */
   intro:
-    "Al Raed Pioneers was established in 1969 and is a renowned sporting equipment trading company based in Dubai, UAE. As the official and sole distributor of top brands such as Yonex, Stiga, SS, LP Support and Cosco in the region, ARP has built a strong reputation for expertise and reliability — serving over 1,500 local and 500 international customers through an established network.",
+    "Al Raed Pioneers was established in 1969 and is a renowned sporting-equipment trading company based in Dubai, UAE. ARP is built on trusted global brand relationships, local expertise and a retail network of 900+ partners.",
   purpose:
     "We exist to empower athletes, teams, and communities through premium products, expert service, and a passion for sport.",
   timeline: [
