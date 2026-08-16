@@ -94,36 +94,6 @@ export const brandPartnerships: Record<string, BrandPartnership> = {
     points: sharedPoints,
     territory: defaultTerritory,
   },
-  "ss-cricket": {
-    titleLead: "Official UAE",
-    titleAccent: "Distribution Partner",
-    body: "ARP supplies SS cricket equipment across the UAE — bats, protective gear and team kit for clubs, academies and schools.",
-    about:
-      "SS is a cricket equipment manufacturer supplying bats, protective gear and team equipment used at club and professional level. ARP distributes the range across the UAE.",
-    facts: [
-      { label: "Category", value: "Cricket" },
-      { label: "Headquarters", value: "Meerut, India" },
-      { label: "Founded", value: "Client-supplied" },
-      { label: "Presence", value: "Client-supplied" },
-    ],
-    points: sharedPoints,
-    territory: defaultTerritory,
-  },
-  surco: {
-    titleLead: "Official UAE",
-    titleAccent: "Distribution Partner",
-    body: "ARP distributes Surco sports accessories in the UAE, supporting retail and institutional demand across categories.",
-    about:
-      "Surco supplies sports accessories and equipment for retail and institutional channels. ARP represents the brand across the UAE market.",
-    facts: [
-      { label: "Category", value: "Sports Accessories" },
-      { label: "Headquarters", value: "India" },
-      { label: "Founded", value: "Client-supplied" },
-      { label: "Presence", value: "Client-supplied" },
-    ],
-    points: sharedPoints,
-    territory: defaultTerritory,
-  },
 };
 
 /** Assurance tiles shown under the hero — identical across brands. */

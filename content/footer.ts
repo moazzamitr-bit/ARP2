@@ -53,7 +53,7 @@ export const footerColumns: FooterColumn[] = [
 ];
 
 export const footerBrandLogos = [
-  { name: "Yonex", src: "/assets/samples/logos/yonex.png", href: "/brands/yonex" },
+  { name: "Yonex", src: "/assets/revisions/logos/yonex-white.png", href: "/brands/yonex" },
   { name: "STIGA", src: "/assets/samples/logos/stiga.png", href: "/brands/stiga" },
   { name: "COSCO", src: "/assets/samples/logos/cosco.png", href: "/brands/cosco" },
   { name: "LP Support", src: "/assets/samples/logos/lp-support.png", href: "/brands/lp-support" },

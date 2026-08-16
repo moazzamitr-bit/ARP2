@@ -1,21 +1,14 @@
 import Link from "next/link";
-import { CalendarCheck2, CheckCircle2, Clock3, Lightbulb, MessageCircle, Route, Users } from "lucide-react";
+import { CalendarCheck2, Clock3, Instagram, MessageCircle, Route } from "lucide-react";
 import { VenueGallery } from "@/components/revision/RevisionBlocks";
 import { Container } from "@/components/ui/Section";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
-  "Yonex Concept Badminton Court",
-  "Discover and book ARP's Yonex Concept Badminton Court in Dubai.",
+  "Pioneer Badminton Hub",
+  "Discover Pioneer Badminton Hub in Al Quoz and book your badminton court directly on WhatsApp.",
   "/venue",
 );
-
-const facilities = [
-  { title: "Purpose-built court", body: "A dedicated badminton setting for training, play and friendly competition.", icon: CheckCircle2 },
-  { title: "Performance lighting", body: "A clear, considered court environment designed around the game.", icon: Lightbulb },
-  { title: "Easy coordination", body: "Share your preferred session details and the ARP team will confirm availability.", icon: CalendarCheck2 },
-  { title: "Player support", body: "Get practical arrival guidance and booking support directly from the ARP team.", icon: Users },
-];
 
 const bookingSteps = [
   { title: "Send your request", body: "Message us with the date, preferred time and number of players.", icon: MessageCircle },
@@ -23,7 +16,8 @@ const bookingSteps = [
   { title: "Plan your arrival", body: "Use the confirmed details to prepare for a smooth session at the venue.", icon: Route },
 ];
 
-const whatsappBooking = "https://wa.me/971526347429?text=Hello%20ARP%20Group%2C%20I%20would%20like%20to%20book%20the%20Yonex%20Concept%20Badminton%20Court.";
+const whatsappBooking = "https://wa.me/971552871234?text=Hello%20Pioneer%20Badminton%20Hub%2C%20I%20would%20like%20to%20book%20a%20court.";
+const instagramVenue = "https://www.instagram.com/pbh.dubai?igsh=Z3FpaDhkbGVqenFv";
 
 export default function VenuePage() {
   return (
@@ -32,15 +26,18 @@ export default function VenuePage() {
         <Container>
           <div className="revision-venue-hero-copy">
             <p className="revision-section-kicker">ARP Sports Venue</p>
-            <h1>Yonex Concept Badminton Court</h1>
-            <p>Train, play and compete in a premium badminton environment supported by the UAE&apos;s official Yonex distribution partner.</p>
+            <h1>Pioneer Badminton Hub</h1>
+            <p>Train, play and compete at a dedicated badminton venue in Al Quoz with direct court-booking support.</p>
             <div className="revision-hero-actions">
               <a className="revision-button revision-button-primary" href={whatsappBooking} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} aria-hidden="true" /> Book on WhatsApp
               </a>
+              <a className="revision-button revision-button-instagram" href={instagramVenue} target="_blank" rel="noreferrer">
+                <Instagram size={18} aria-hidden="true" /> Venue Instagram
+              </a>
               <Link className="revision-button" href="/contact">Contact ARP</Link>
             </div>
-            <span className="revision-venue-hours"><Clock3 size={17} aria-hidden="true" /> Booking confirmation is provided directly by the ARP team.</span>
+            <span className="revision-venue-hours"><Clock3 size={17} aria-hidden="true" /> Court booking: +971 55 287 1234 - confirmation is provided directly by the venue team.</span>
           </div>
         </Container>
       </section>
@@ -82,27 +79,6 @@ export default function VenuePage() {
         </Container>
       </section>
 
-      <section className="revision-venue-facilities">
-        <Container>
-          <div className="revision-section-head">
-            <p className="revision-section-kicker">Facilities</p>
-            <h2>Everything you need to get on court</h2>
-          </div>
-          <ul className="revision-facility-grid">
-            {facilities.map((facility) => {
-              const Icon = facility.icon;
-              return (
-                <li key={facility.title}>
-                  <Icon size={24} aria-hidden="true" />
-                  <h3>{facility.title}</h3>
-                  <p>{facility.body}</p>
-                </li>
-              );
-            })}
-          </ul>
-        </Container>
-      </section>
-
       <section className="revision-venue-cta">
         <Container>
           <div>
@@ -110,9 +86,14 @@ export default function VenuePage() {
             <h2>Reserve your court with one message</h2>
             <p>Tell us your preferred date, time and number of players. Our team will reply with availability and the final booking details.</p>
           </div>
-          <a className="revision-button revision-button-light" href={whatsappBooking} target="_blank" rel="noreferrer">
-            <MessageCircle size={18} aria-hidden="true" /> Book Now
-          </a>
+          <div className="revision-venue-cta-actions">
+            <a className="revision-button revision-button-light" href={whatsappBooking} target="_blank" rel="noreferrer">
+              <MessageCircle size={18} aria-hidden="true" /> Book on WhatsApp
+            </a>
+            <a className="revision-button revision-button-instagram" href={instagramVenue} target="_blank" rel="noreferrer">
+              <Instagram size={18} aria-hidden="true" /> Venue Instagram
+            </a>
+          </div>
         </Container>
       </section>
     </main>

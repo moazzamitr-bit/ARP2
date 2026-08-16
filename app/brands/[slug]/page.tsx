@@ -31,7 +31,7 @@ export default function BrandDetailPage({
   const products = getProductsByBrand(brand.slug);
   const isYonex = brand.slug === "yonex";
   const heroImages: Record<string, string> = {
-    yonex: "/assets/samples/heroes/badminton-athlete.webp",
+    yonex: "/assets/revisions/hero/badminton-yonex.webp",
     stiga: "/assets/samples/heroes/22.webp",
     cosco: "/assets/samples/heroes/team-sports.webp",
     "lp-support": "/assets/samples/heroes/home-athlete.webp",
@@ -52,17 +52,11 @@ export default function BrandDetailPage({
 
           <div className="brand-detail-grid">
             <div className="brand-detail-copy">
-              {isYonex ? (
-                <span className="brand-badge-yonex" aria-label="YONEX">
-                  YONEX
-                </span>
-              ) : (
-                <BrandLogo
-                  text={brand.logoText}
-                  className={brand.logoClass}
-                  src={brand.logoSrc}
-                />
-              )}
+              <BrandLogo
+                text={brand.logoText}
+                className={brand.logoClass}
+                src={brand.logoSrc}
+              />
               <h1>
                 {isYonex ? (
                   <>

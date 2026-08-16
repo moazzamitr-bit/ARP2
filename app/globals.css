@@ -7912,6 +7912,11 @@ position: absolute;
     max-width: 92px;
     max-height: 26px;
   }
+
+  .footer-logos {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
 }
 
 
@@ -7938,4 +7943,20 @@ section.article-comments {
 
 section.page-hero.product-page-hero nav.breadcrumb {
     margin: 0 0 24px;
+}
+
+.brand-logo-image.brand-logo-yonex {
+  min-width: 170px;
+  min-height: 70px;
+  padding: 10px 14px !important;
+  border-radius: 10px;
+  background: #052b68 !important;
+}
+
+.brand-logo-image.brand-logo-yonex .brand-logo-img {
+  width: auto;
+  max-width: 150px;
+  height: auto;
+  max-height: 54px;
+  object-fit: contain;
 }

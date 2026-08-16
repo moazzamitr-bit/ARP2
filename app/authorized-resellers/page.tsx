@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { BadgeCheck, MessageCircle, ShieldCheck } from "lucide-react";
+import { MessageCircle, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/ui/Section";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -10,16 +11,16 @@ export const metadata = pageMetadata(
 );
 
 const primaryPartners = [
-  { name: "GO SPORT", tone: "go-sport", note: "Sports retail" },
-  { name: "LULU", tone: "lulu", note: "Hypermarket network" },
-  { name: "DECATHLON", tone: "decathlon", note: "Sports retail" },
+  { name: "Go Sport", src: "/assets/revisions/resellers/go-sport.png", note: "Sports retail" },
+  { name: "Lulu", src: "/assets/revisions/resellers/lulu.png", note: "Hypermarket network" },
+  { name: "Decathlon", src: "/assets/revisions/resellers/decathlon.png", note: "Sports retail" },
 ];
 
 const partnerNetwork = [
-  { name: "ADLER", tone: "adler" },
-  { name: "amazon", tone: "amazon" },
-  { name: "noon", tone: "noon" },
-  { name: "COSMOS", tone: "cosmos" },
+  { name: "ADLER", src: "/assets/revisions/resellers/adler.png" },
+  { name: "Amazon", src: "/assets/revisions/resellers/amazon.png" },
+  { name: "Noon", src: "/assets/revisions/resellers/noon.png" },
+  { name: "Cosmos", src: "/assets/revisions/resellers/cosmos.png" },
 ];
 
 export default function AuthorizedResellersPage() {
@@ -45,17 +46,16 @@ export default function AuthorizedResellersPage() {
           </div>
           <div className="revision-reseller-primary">
             {primaryPartners.map((partner) => (
-              <article className={`revision-reseller-logo ${partner.tone}`} key={partner.name}>
-                <BadgeCheck size={20} aria-hidden="true" />
-                <strong>{partner.name}</strong>
+              <article className="revision-reseller-logo" key={partner.name}>
+                <Image src={partner.src} alt={`${partner.name} logo`} width={260} height={120} unoptimized />
                 <small>{partner.note}</small>
               </article>
             ))}
           </div>
           <div className="revision-reseller-secondary" aria-label="Additional authorized resellers">
             {partnerNetwork.map((partner) => (
-              <article className={`revision-reseller-logo ${partner.tone}`} key={partner.name}>
-                <strong>{partner.name}</strong>
+              <article className="revision-reseller-logo" key={partner.name}>
+                <Image src={partner.src} alt={`${partner.name} logo`} width={220} height={92} unoptimized />
               </article>
             ))}
           </div>

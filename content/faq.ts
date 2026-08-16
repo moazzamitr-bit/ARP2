@@ -20,7 +20,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "Which brands does ARP distribute in the UAE?",
         answer:
-          "ARP is the official UAE distribution partner for Yonex, STIGA, Cosco, LP Support, SS Cricket and Surco. Every brand we represent is listed on our Brands page along with the product categories we stock.",
+          "ARP represents Yonex, STIGA, Cosco and LP Support in the UAE. Every brand is listed on our Brands page with the product categories available through ARP.",
       },
       {
         question: "How do I know a product is genuine?",
@@ -35,7 +35,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "Can I see a product before buying?",
         answer:
-          "Yes. Our showrooms in Dubai, Abu Dhabi and Sharjah carry display stock across most categories. Use the store locator to find opening hours and directions for the branch nearest you.",
+          "Yes. Our three official Dubai branches carry display stock across key categories. Use the Locations page to find each branch's phone number, WhatsApp contact and Google Maps directions.",
       },
     ],
   },

@@ -42,11 +42,17 @@ export default function LocationsPage() {
                     <h2>{branch.name}</h2>
                     <p><MapPin size={17} aria-hidden="true" /> {branch.address}</p>
                     <p><Clock3 size={17} aria-hidden="true" /> {branch.hoursSummary}</p>
-                    <div className="revision-branch-actions">
-                      <a href={`tel:+${phoneDigits}`}><Phone size={17} aria-hidden="true" /> Call</a>
-                      <a href={`https://wa.me/${whatsappDigits}`} target="_blank" rel="noreferrer"><MessageCircle size={17} aria-hidden="true" /> WhatsApp</a>
-                      <a href={branch.directionsUrl} target="_blank" rel="noreferrer"><Navigation size={17} aria-hidden="true" /> Directions</a>
+                    <div className="revision-branch-contacts">
+                      <a href={`tel:+${phoneDigits}`}>
+                        <Phone size={17} aria-hidden="true" />
+                        <span><small>Phone Number</small><strong>{branch.phone}</strong></span>
+                      </a>
+                      <a href={`https://wa.me/${whatsappDigits}`} target="_blank" rel="noreferrer">
+                        <MessageCircle size={17} aria-hidden="true" />
+                        <span><small>WhatsApp Number</small><strong>{branch.whatsapp}</strong></span>
+                      </a>
                     </div>
+                    <a className="revision-branch-directions" href={branch.directionsUrl} target="_blank" rel="noreferrer"><Navigation size={17} aria-hidden="true" /> Google Maps / Business Location</a>
                   </div>
                 </article>
               );

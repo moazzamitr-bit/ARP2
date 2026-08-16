@@ -53,6 +53,12 @@
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
+.revision-button-instagram {
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(135deg, #8134af, #dd2a7b, #f58529);
+}
+
 .revision-home-hero {
   position: relative;
   height: clamp(620px, 76vh, 790px);
@@ -87,12 +93,44 @@
 }
 
 .revision-hero-inner {
+  height: 100%;
   min-height: inherit;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-top: 7rem;
   padding-bottom: 4.5rem;
+}
+
+.revision-hero-brand {
+  position: absolute;
+  top: clamp(7.5rem, 13vh, 9.5rem);
+  right: max(1.5rem, calc((100vw - 1180px) / 2));
+  z-index: 1;
+  display: grid;
+  width: clamp(150px, 18vw, 245px);
+  min-height: 78px;
+  padding: 0.75rem 1rem;
+  place-items: center;
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.revision-hero-brand.is-dark {
+  background: rgba(2, 23, 55, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.revision-hero-brand.is-light {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+.revision-hero-brand img {
+  width: 100%;
+  height: auto;
+  max-height: 68px;
+  object-fit: contain;
 }
 
 .revision-kicker,
@@ -402,6 +440,14 @@
   border-radius: 20px;
   background: #fff;
   box-shadow: 0 12px 28px rgba(25, 54, 92, 0.08);
+}
+
+.revision-partner-mark img {
+  width: auto;
+  max-width: 170px;
+  height: 54px;
+  margin: 0 auto;
+  object-fit: contain;
 }
 
 .revision-partner-mark strong {
@@ -943,6 +989,56 @@
   font-weight: 800;
 }
 
+.revision-branch-contacts {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.15rem;
+}
+
+.revision-branch-contacts a {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  padding: 0.75rem 0.85rem;
+  color: var(--revision-blue);
+  border: 1px solid var(--revision-line);
+  border-radius: 14px;
+  background: var(--revision-surface);
+}
+
+.revision-branch-contacts svg {
+  flex: 0 0 auto;
+  color: var(--revision-green);
+}
+
+.revision-branch-contacts span,
+.revision-branch-contacts small,
+.revision-branch-contacts strong {
+  display: block;
+}
+
+.revision-branch-contacts small {
+  margin-bottom: 0.12rem;
+  color: var(--revision-muted);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.revision-branch-contacts strong {
+  font-size: 0.82rem;
+}
+
+.revision-branch-directions {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  margin-top: 0.8rem;
+  color: var(--revision-blue);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
 .revision-reseller-hero > div,
 .revision-reseller-help > div {
   display: flex;
@@ -1023,6 +1119,19 @@
 .revision-reseller-logo svg {
   margin: 0 auto 0.7rem;
   color: var(--revision-green);
+}
+
+.revision-reseller-logo img {
+  width: auto;
+  max-width: 82%;
+  height: auto;
+  max-height: 92px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.revision-reseller-primary .revision-reseller-logo img {
+  max-height: 118px;
 }
 
 .revision-reseller-help {
@@ -1253,6 +1362,12 @@
   color: #fff;
 }
 
+.revision-venue-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
 .revision-contact-page {
   padding: 0;
   background: #fff;
@@ -1471,8 +1586,10 @@
   .revision-awards-main .revision-gallery-next { right: 0.65rem; }
   .revision-awards-thumbs { gap: 0.45rem; }
   .revision-awards-thumbs button { border-width: 2px; border-radius: 10px; }
-  .revision-venue-main { aspect-ratio: 1.25 / 1; min-height: 350px; }
+  .revision-venue-main { width: 100%; aspect-ratio: 1.25 / 1; min-height: 0; }
   .revision-venue-experience-head { align-items: flex-start; flex-direction: column; }
   .revision-venue-experience-head .revision-section-head { margin-bottom: 0; }
   .revision-venue-steps li { min-height: 0; }
+  .revision-hero-brand { top: 1.25rem; right: 1rem; width: 132px; min-height: 58px; padding: 0.55rem 0.7rem; }
+  .revision-hero-brand img { max-height: 48px; }
 }

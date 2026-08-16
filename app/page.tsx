@@ -41,7 +41,7 @@ const latestArticles = [...newsArticles].sort((a, b) => b.date.localeCompare(a.d
 const yonex = brands.find((brand) => brand.slug === "yonex");
 const secondaryBrands = brands.filter((brand) => ["stiga", "cosco", "lp-support"].includes(brand.slug));
 
-const whatsappHref = "https://wa.me/971526347429?text=Hello%20ARP%20Group";
+const venueBookingHref = "https://wa.me/971552871234?text=Hello%20Pioneer%20Badminton%20Hub%2C%20I%20would%20like%20to%20book%20a%20court.";
 
 export default function HomePage() {
   return (
@@ -76,16 +76,16 @@ export default function HomePage() {
           <div className="revision-court-grid">
             <div className="revision-court-copy">
               <p className="revision-section-kicker">Premium venue</p>
-              <h2>Play at the Yonex Concept Badminton Court</h2>
-              <p>A dedicated badminton environment with professional courts, quality lighting and direct booking support from the ARP team.</p>
+              <h2>Play at Pioneer Badminton Hub</h2>
+              <p>A dedicated badminton environment with professional courts, quality lighting and direct booking support from the venue team.</p>
               <div className="revision-hero-actions">
-                <a className="revision-button revision-button-light" href={whatsappHref} target="_blank" rel="noreferrer">Book Now</a>
+                <a className="revision-button revision-button-light" href={venueBookingHref} target="_blank" rel="noreferrer">Book Now</a>
                 <Link className="revision-button revision-button-light" href="/contact">Contact Us</Link>
                 <Link className="revision-button revision-button-light" href="/venue">Learn More</Link>
               </div>
             </div>
             <div className="revision-court-media">
-              <Image src="/assets/samples/heroes/21.webp" alt="Yonex Concept Badminton Court" fill sizes="(max-width: 900px) 100vw, 50vw" />
+              <Image src="/assets/samples/heroes/21.webp" alt="Pioneer Badminton Hub indoor court" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
           </div>
         </Container>

@@ -17,7 +17,7 @@ export const site = {
     brandsSkyline: "/assets/samples/heroes/dubai-skyline.webp",
     productShoe: "/assets/samples/products/shoe-main.jpg",
     partners: {
-      yonex: "/assets/samples/logos/yonex.png",
+      yonex: "/assets/revisions/logos/yonex-white.png",
       adidas: "/assets/samples/logos/adidas.png",
       mizuno: "/assets/samples/logos/mizuno.png",
       wilson: "/assets/samples/logos/wilson.png",
@@ -40,7 +40,7 @@ export const contactDetails: ContactDetails = {
 };
 
 export const globalPartners = [
-  { name: "Yonex", src: "/assets/samples/logos/yonex.png", href: "/brands/yonex" },
+  { name: "Yonex", src: "/assets/revisions/logos/yonex-white.png", href: "/brands/yonex" },
   { name: "adidas", src: "/assets/samples/logos/adidas.png", href: "/brands" },
   { name: "Mizuno", src: "/assets/samples/logos/mizuno.png", href: "/brands" },
   { name: "Wilson", src: "/assets/samples/logos/wilson.png", href: "/brands" },

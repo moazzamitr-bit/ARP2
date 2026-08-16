@@ -10,22 +10,40 @@ const whatsappHref =
 
 const heroSlides = [
   {
-    title: "Yonex / Badminton",
+    title: "Badminton - Yonex",
     eyebrow: "Official distribution. Championship performance.",
-    image: "/assets/samples/heroes/badminton-athlete.webp",
-    position: "center 28%",
+    image: "/assets/revisions/hero/badminton-yonex.webp",
+    position: "center",
+    brandLogo: "/assets/revisions/logos/yonex-white.png",
+    brandName: "Yonex",
+    brandLogoTheme: "dark",
   },
   {
-    title: "Tennis",
+    title: "Tennis - Yonex",
     eyebrow: "Performance equipment for every level of play.",
-    image: "/assets/samples/heroes/tennis-action.webp",
-    position: "center 35%",
+    image: "/assets/revisions/hero/tennis-yonex.webp",
+    position: "center",
+    brandLogo: "/assets/revisions/logos/yonex-white.png",
+    brandName: "Yonex",
+    brandLogoTheme: "dark",
   },
   {
     title: "Cricket",
     eyebrow: "Trusted equipment for teams, academies and retailers.",
-    image: "/assets/samples/heroes/team-sports.webp",
-    position: "center 40%",
+    image: "/assets/revisions/hero/cricket-cosco.webp",
+    position: "center",
+    brandLogo: null,
+    brandName: null,
+    brandLogoTheme: null,
+  },
+  {
+    title: "Table Tennis - STIGA",
+    eyebrow: "Precision table tennis equipment for players, clubs and institutions.",
+    image: "/assets/revisions/hero/table-tennis-stiga.webp",
+    position: "center",
+    brandLogo: "/assets/samples/logos/stiga.png",
+    brandName: "STIGA",
+    brandLogoTheme: "light",
   },
 ] as const;
 
@@ -60,6 +78,11 @@ export function HomeHeroCarousel() {
         </div>
       ))}
       <div className="revision-hero-shade" />
+      {slide.brandLogo ? (
+        <div className={`revision-hero-brand is-${slide.brandLogoTheme}`} aria-label={`${slide.brandName} brand`}>
+          <Image src={slide.brandLogo} alt={slide.brandName ?? ""} width={260} height={96} unoptimized />
+        </div>
+      ) : null}
       <div className="container-shell revision-hero-inner">
         <p className="revision-kicker">Leading the game since 1969</p>
         <div className="revision-hero-copy" aria-live="polite">
@@ -96,15 +119,23 @@ export function HomeHeroCarousel() {
   );
 }
 
-const partnerNames = ["Go Sport", "Lulu", "Decathlon", "ADLER", "Amazon", "Noon", "Cosmos"] as const;
+const partnerMarks = [
+  { name: "Go Sport", src: "/assets/revisions/resellers/go-sport.png" },
+  { name: "Lulu", src: "/assets/revisions/resellers/lulu.png" },
+  { name: "Decathlon", src: "/assets/revisions/resellers/decathlon.png" },
+  { name: "ADLER", src: "/assets/revisions/resellers/adler.png" },
+  { name: "Amazon", src: "/assets/revisions/resellers/amazon.png" },
+  { name: "Noon", src: "/assets/revisions/resellers/noon.png" },
+  { name: "Cosmos", src: "/assets/revisions/resellers/cosmos.png" },
+] as const;
 
 export function ChannelPartnersCarousel({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`revision-partner-carousel ${compact ? "is-compact" : ""}`}>
       <div className="revision-partner-track">
-        {[...partnerNames, ...partnerNames].map((name, index) => (
-          <div className="revision-partner-mark" key={`${name}-${index}`} aria-hidden={index >= partnerNames.length}>
-            <strong>{name}</strong>
+        {[...partnerMarks, ...partnerMarks].map((partner, index) => (
+          <div className="revision-partner-mark" key={`${partner.name}-${index}`} aria-hidden={index >= partnerMarks.length}>
+            <Image src={partner.src} alt={index < partnerMarks.length ? partner.name : ""} width={180} height={62} unoptimized />
             <small>Authorized Channel Partner</small>
           </div>
         ))}
@@ -172,7 +203,7 @@ export function VenueGallery() {
         <button type="button" className="revision-gallery-next" onClick={() => setActive((active + 1) % venueSlides.length)} aria-label="Next venue image">
           <ChevronRight size={22} />
         </button>
-        <figcaption><span>Yonex Concept Badminton Court</span><strong>{current.alt}</strong></figcaption>
+        <figcaption><span>Pioneer Badminton Hub</span><strong>{current.alt}</strong></figcaption>
       </figure>
       <div className="revision-venue-thumbs" role="tablist" aria-label="Choose a venue image">
         {venueSlides.map((image, index) => (
